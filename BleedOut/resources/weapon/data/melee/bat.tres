@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://e57utkvr4yu8"]
+
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_0emjr"]
+[ext_resource type="PackedScene" uid="uid://e1aafita528o" path="res://resources/weapon/melee/bat.tscn" id="1_83xf2"]
+
+[resource]
+script = ExtResource("1_0emjr")
+name = "bat"
+damage = 1.0
+scene = ExtResource("1_83xf2")

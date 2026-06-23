@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://e1aafita528o"]
+
+[ext_resource type="Script" uid="uid://byrp7goqfu7t0" path="res://resources/weapon/melee/bat.gd" id="1_7csuo"]
+[ext_resource type="Texture2D" uid="uid://v3hgvc4tkcgf" path="res://resources/weapon/sprite/melee/new_bat.png" id="2_hwdl6"]
+
+[node name="Bat" type="Node2D" unique_id=672600795]
+script = ExtResource("1_7csuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1603955785]
+position = Vector2(4.973799e-14, -7)
+rotation = -3.1415927
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_hwdl6")
+flip_v = true

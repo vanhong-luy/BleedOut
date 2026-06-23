@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dncm8lcrtpfet"]
+
+[ext_resource type="Script" uid="uid://bnqr866xln0bb" path="res://resources/enemy/scene/summoner/projectile.gd" id="1_721gi"]
+[ext_resource type="Texture2D" uid="uid://yxaygltiru8h" path="res://resources/enemy/sprites/apprentice/big ahh fireball.png" id="2_glk3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmtld"]
+size = Vector2(18, 20)
+
+[node name="Projectile" type="Area2D" unique_id=1944454436]
+script = ExtResource("1_721gi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=295313198]
+position = Vector2(-9.536743e-07, 2.1316282e-13)
+rotation = -3.1415927
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_glk3m")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699360777]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_lmtld")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1190192969]
+position = Vector2(-17, 5.684342e-14)
+rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
+target_position = Vector2(-1.0199324e-06, 23.333334)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

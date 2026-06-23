@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://0vqksp6cjxqc"]
+
+[ext_resource type="PackedScene" uid="uid://beeb1v3jdytf" path="res://resources/weapon/pistol/usp.tscn" id="1_fkyxj"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_xbos0"]
+
+[resource]
+script = ExtResource("1_xbos0")
+name = "usp"
+damage = 1.0
+scene = ExtResource("1_fkyxj")
+type = 3
+mag_cap = 12
+max_mag = 12
+spare_ammo = 48
+fire_rate = 0.17

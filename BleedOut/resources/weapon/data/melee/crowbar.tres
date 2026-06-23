@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://djyem5t0w0df8"]
+
+[ext_resource type="PackedScene" uid="uid://20at5k013o85" path="res://resources/weapon/melee/crowbar.tscn" id="1_ay3s3"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_yhrq2"]
+
+[resource]
+script = ExtResource("1_yhrq2")
+name = "crowbar"
+damage = 1.0
+scene = ExtResource("1_ay3s3")

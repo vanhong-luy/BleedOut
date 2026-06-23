@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dy872lv5qycqk"]
+
+[ext_resource type="Script" uid="uid://dgtstcetawrjn" path="res://resources/weapon/melee/blade.gd" id="1_eep32"]
+[ext_resource type="Texture2D" uid="uid://dnfn662vat2q1" path="res://resources/weapon/sprite/melee/blade.png" id="1_ol6ux"]
+
+[node name="Blade" type="Node2D" unique_id=1701750915]
+script = ExtResource("1_eep32")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1375113878]
+position = Vector2(0, -7)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_ol6ux")

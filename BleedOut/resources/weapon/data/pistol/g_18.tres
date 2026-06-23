@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://684525vs1ava"]
+
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_m0qw2"]
+[ext_resource type="PackedScene" uid="uid://ck78nsv10xgbs" path="res://resources/weapon/pistol/g_18.tscn" id="1_uugpp"]
+
+[resource]
+script = ExtResource("1_m0qw2")
+name = "g_18"
+damage = 0.5
+scene = ExtResource("1_uugpp")
+type = 3
+mag_cap = 20
+max_mag = 20
+spare_ammo = 40
+fire_rate = 0.15

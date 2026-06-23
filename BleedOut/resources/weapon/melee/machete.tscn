@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bouem5858nw"]
+
+[ext_resource type="Texture2D" uid="uid://bxd3dw7c64otj" path="res://resources/weapon/sprite/melee/machete.png" id="1_mvw50"]
+[ext_resource type="Script" uid="uid://dapcudxyaun0n" path="res://resources/weapon/melee/machete.gd" id="1_whuto"]
+
+[node name="Machete" type="Node2D" unique_id=66891311]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_whuto")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=882531421]
+position = Vector2(2.999999, -14)
+rotation = -0.5235988
+texture = ExtResource("1_mvw50")

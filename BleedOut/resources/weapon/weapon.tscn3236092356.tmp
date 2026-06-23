@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ik4kx3t2exc"]
+
+[ext_resource type="Script" uid="uid://dia8yrvxe5ptr" path="res://resources/weapon/weapon.gd" id="1_28w72"]
+[ext_resource type="PackedScene" uid="uid://dav7qqcefi2ki" path="res://resources/player/scenes/hit_box.tscn" id="2_d72dn"]
+[ext_resource type="Texture2D" uid="uid://23ad5a08knne" path="res://resources/weapon/sprite/crowbar.png" id="2_q8tx2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28w72"]
+size = Vector2(11, 5)
+
+[node name="Weapon" type="Node2D" unique_id=801700558]
+script = ExtResource("1_28w72")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1588224720]
+rotation = -0.7853982
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_q8tx2")
+flip_v = true
+
+[node name="HitBox" parent="." unique_id=449375183 instance=ExtResource("2_d72dn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=816495584]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_28w72")

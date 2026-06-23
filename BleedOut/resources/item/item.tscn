@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://45gimwrhst2m"]
+
+[ext_resource type="Script" uid="uid://cyxjv8cu78lrj" path="res://resources/item/item.gd" id="1_p0cb8"]
+
+[node name="Item" type="Area2D" unique_id=1756751037]
+script = ExtResource("1_p0cb8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

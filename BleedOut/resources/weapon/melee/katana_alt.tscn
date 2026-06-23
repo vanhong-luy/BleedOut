@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cwqhw2ptaltk2"]
+
+[ext_resource type="Script" uid="uid://cle7hafxi0wa0" path="res://resources/weapon/melee/katana.gd" id="1_fbkc0"]
+[ext_resource type="Texture2D" uid="uid://crx4mpqx3n4yo" path="res://resources/weapon/sprite/melee/katana_alt.png" id="2_fbkc0"]
+
+[node name="Blade" type="Node2D" unique_id=1701750915]
+script = ExtResource("1_fbkc0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1375113878]
+z_index = -1
+position = Vector2(0, 8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_fbkc0")

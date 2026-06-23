@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dduxnklgyte2r"]
+
+[ext_resource type="PackedScene" uid="uid://cwqhw2ptaltk2" path="res://resources/weapon/melee/katana_alt.tscn" id="1_wusjo"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_n68fa"]
+
+[resource]
+script = ExtResource("2_n68fa")
+name = "katana_alt"
+damage = 1.5
+scene = ExtResource("1_wusjo")
+type = 1

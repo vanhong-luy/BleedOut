@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bc3uvbnl0gn4j"]
+
+[node name="TriggerArea" type="Area2D" unique_id=430346429]

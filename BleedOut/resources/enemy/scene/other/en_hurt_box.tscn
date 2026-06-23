@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bolg33284318o"]
+
+[ext_resource type="Script" uid="uid://umsclb6kdig" path="res://resources/enemy/scene/other/en_hurt_box.gd" id="1_vwnii"]
+
+[node name="EnHurtBox" type="Area2D" unique_id=876803159]
+script = ExtResource("1_vwnii")
+
+[connection signal="died" from="." to="." method="_on_died"]

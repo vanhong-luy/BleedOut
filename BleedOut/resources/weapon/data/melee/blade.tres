@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://fcs23vh2qmka"]
+
+[ext_resource type="PackedScene" uid="uid://dy872lv5qycqk" path="res://resources/weapon/melee/blade.tscn" id="1_hiowr"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_m3lbj"]
+
+[resource]
+script = ExtResource("2_m3lbj")
+name = "blade"
+damage = 1.5
+scene = ExtResource("1_hiowr")

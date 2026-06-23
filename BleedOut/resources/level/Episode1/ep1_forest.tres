@@ -1,0 +1,29 @@
+[gd_resource type="TileSet" format=3 uid="uid://c2altnx374mds"]
+
+[ext_resource type="Texture2D" uid="uid://s8vle0vmo7ds" path="res://resources/level/assets/river_tileset.png" id="1_45a4f"]
+[ext_resource type="Texture2D" uid="uid://1dxk74m2648s" path="res://resources/level/assets/forest_tileset.png" id="2_7l6si"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmb0s"]
+texture = ExtResource("1_45a4f")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d78tg"]
+texture = ExtResource("2_7l6si")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_kmb0s")
+sources/1 = SubResource("TileSetAtlasSource_d78tg")

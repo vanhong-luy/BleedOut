@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dqn00c4ptarkl"]
+
+[ext_resource type="PackedScene" uid="uid://bouem5858nw" path="res://resources/weapon/melee/machete.tscn" id="1_ipjfo"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_q1h13"]
+
+[resource]
+script = ExtResource("1_q1h13")
+name = "machete"
+damage = 2.0
+scene = ExtResource("1_ipjfo")

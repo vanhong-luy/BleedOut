@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ik4kx3t2exc"]
+
+[sub_resource type="GDScript" id="GDScript_is6jk"]
+
+[node name="Weapon" type="Node2D" unique_id=801700558]
+script = SubResource("GDScript_is6jk")

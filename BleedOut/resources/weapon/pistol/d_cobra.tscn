@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bnmds1bq6olv1"]
+
+[ext_resource type="Texture2D" uid="uid://cn0kc4ymkh76q" path="res://resources/weapon/sprite/pistol/d_cobra.png" id="1_axcxe"]
+[ext_resource type="Script" uid="uid://beofwkuye3ffb" path="res://resources/weapon/pistol/d_cobra.gd" id="1_h0yqo"]
+
+[node name="DCobra" type="Node2D" unique_id=618883953]
+script = ExtResource("1_h0yqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1066438475]
+position = Vector2(0, -3)
+texture = ExtResource("1_axcxe")
+vframes = 2

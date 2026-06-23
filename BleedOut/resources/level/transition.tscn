@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://g6b3rfhvsmg"]
+
+[ext_resource type="Script" uid="uid://cc5jg47gt7su3" path="res://resources/level/transition.gd" id="1_wpjju"]
+
+[node name="Transition" type="Area2D" unique_id=1898142531]
+script = ExtResource("1_wpjju")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

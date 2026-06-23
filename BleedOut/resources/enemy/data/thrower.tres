@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://b04kcawsgefve"]
+
+[ext_resource type="Script" uid="uid://bj8xngqsw3a6j" path="res://resources/enemy/data/enemy.gd" id="1_iihim"]
+
+[resource]
+script = ExtResource("1_iihim")
+name = "apprentice"
+healthpoint = 1.0
+damage = 20

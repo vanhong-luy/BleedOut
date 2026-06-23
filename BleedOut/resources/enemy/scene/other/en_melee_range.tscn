@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bgmv0yo36n0f7"]
+
+[ext_resource type="Script" uid="uid://luyi7g4k1d17" path="res://resources/enemy/scene/other/en_melee_range.gd" id="1_r40v6"]
+
+[node name="en_melee_range" type="Area2D" unique_id=432587459]
+script = ExtResource("1_r40v6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://20at5k013o85"]
+
+[ext_resource type="Script" uid="uid://cw6qjk1v4yuti" path="res://resources/weapon/melee/crowbar.gd" id="1_rsvr4"]
+[ext_resource type="Texture2D" uid="uid://23ad5a08knne" path="res://resources/weapon/sprite/melee/crowbar.png" id="2_xlw0g"]
+
+[node name="Crowbar" type="Node2D" unique_id=801700558]
+script = ExtResource("1_rsvr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1588224720]
+position = Vector2(-4.7683716e-07, -6)
+rotation = -2.3561945
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_xlw0g")
+flip_v = true

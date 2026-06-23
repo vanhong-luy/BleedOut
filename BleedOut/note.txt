@@ -1,0 +1,57 @@
+problem: add fire_rate into pistols
+solved
+
+problem: need charging function for charger
+solved
+
+problem: lifesteal is a bit off. it rounds everything to 1. 
+		that mean all guns give the same amount of heal
+solved
+
+problem: charging system:
+solution: i guess
+	instantiate charge_push into charger.
+	use body_entered signal to detect player
+	if player is inside, launch him out
+	the area activate only during charging, so if is_chargin = false, return early
+solved
+
+problem: currently, charger's homing towards player
+solved
+
+problem: charger charging deal no damage, add some damage
+solved
+
+problem: need atk sprite for apprentice
+
+problem: add summoner minions for preventing score racking
+solved
+
+problem: save weapons when switch level
+solved
+
+problem: if player get too close to summoner 
+		and it spawn on top of player and both stay close to the wall
+		it could spawn enemy outside the room, which will causing soft-lock
+solved: sort of, I turned off their colishape completely
+		they're ghost phasing through walls now, boo type shi
+
+problem: add swing effect to katana
+solved
+
+problem: need a new katana (katana_alt)
+solved: idk why you want it
+
+problem: add this to all enemies' on_en_hurt_box_died()
+GameState.score += score
+
+problem: add timer to each map, track how fast player can finish
+
+problem: make a better UI
+problem: add torurial
+
+problem: add new enemy, shield enemy
+solved: added sentry, a shield enemy
+
+problem: try to solve the pickup item
+solved

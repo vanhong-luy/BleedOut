@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://beem2uq4u17bc"]
+
+[ext_resource type="Script" uid="uid://bj8xngqsw3a6j" path="res://resources/enemy/data/enemy.gd" id="1_ciux3"]
+
+[resource]
+script = ExtResource("1_ciux3")
+name = "zombie"
+healthpoint = 0.5
+damage = 25

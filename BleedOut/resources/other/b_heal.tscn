@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dy0ip1ug5mktw"]
+
+[ext_resource type="Script" uid="uid://3tct2sphwlb4" path="res://resources/other/b_heal.gd" id="1_rh4y7"]
+[ext_resource type="Texture2D" uid="uid://c3ooycbteb5fq" path="res://resources/other/blood_3.png" id="2_sdcws"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh4y7"]
+
+[node name="BHeal" type="Area2D" unique_id=234853150]
+script = ExtResource("1_rh4y7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013928412]
+shape = SubResource("CircleShape2D_rh4y7")
+
+[node name="BloodSprite" type="Sprite2D" parent="." unique_id=2072495145]
+texture = ExtResource("2_sdcws")
+hframes = 4
+vframes = 4
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

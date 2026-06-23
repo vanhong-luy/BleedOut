@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ik4kx3t2exc"]
+
+[ext_resource type="Script" uid="uid://dn3f01orn6nap" path="res://weapon/weapon.gd" id="1_q8tx2"]
+[ext_resource type="Texture2D" uid="uid://23ad5a08knne" path="res://weapon/sprite/pixil-frame-0.png" id="2_q8tx2"]
+
+[node name="Weapon" type="Node2D" unique_id=801700558]
+script = ExtResource("1_q8tx2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1588224720]
+texture = ExtResource("2_q8tx2")

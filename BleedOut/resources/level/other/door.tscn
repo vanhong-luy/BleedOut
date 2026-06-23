@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bcv6rai03dsnb"]
+
+[ext_resource type="Texture2D" uid="uid://bibjdvt5o7nbh" path="res://resources/level/assets/simple wall block.png" id="1_78lc1"]
+[ext_resource type="Script" uid="uid://brc0v0hbm6ijn" path="res://resources/level/other/door.gd" id="1_gc8f8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78lc1"]
+texture = ExtResource("1_78lc1")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gc8f8"]
+sources/0 = SubResource("TileSetAtlasSource_78lc1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gc8f8"]
+size = Vector2(64, 16)
+
+[node name="Door" type="StaticBody2D" unique_id=437277108]
+script = ExtResource("1_gc8f8")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1804426804]
+tile_map_data = PackedByteArray(0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_gc8f8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204221981]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_gc8f8")

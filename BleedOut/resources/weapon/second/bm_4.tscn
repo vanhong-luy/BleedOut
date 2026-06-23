@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cvmtenll8iu38"]
+
+[ext_resource type="Script" uid="uid://davxgxus7xjjr" path="res://resources/weapon/second/bm_4.gd" id="1_4cfl5"]
+[ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="1_ahdhu"]
+
+[node name="BM4" type="Node2D" unique_id=1105835885]
+script = ExtResource("1_4cfl5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644982862]
+position = Vector2(1, -10)
+texture = ExtResource("1_ahdhu")

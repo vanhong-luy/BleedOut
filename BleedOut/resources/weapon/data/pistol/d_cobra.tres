@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://rpplw5xaptjk"]
+
+[ext_resource type="PackedScene" uid="uid://bnmds1bq6olv1" path="res://resources/weapon/pistol/d_cobra.tscn" id="1_7txi4"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_jc04j"]
+
+[resource]
+script = ExtResource("1_jc04j")
+name = "d_cobra"
+damage = 2.0
+scene = ExtResource("1_7txi4")
+type = 3
+mag_cap = 7
+max_mag = 7
+spare_ammo = 35
+fire_rate = 0.22

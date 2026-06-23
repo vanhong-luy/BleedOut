@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://doioj77fydbdw"]
+
+[ext_resource type="Script" uid="uid://chcv34d3m08ex" path="res://resources/other/b_puddle.gd" id="1_6rppo"]
+[ext_resource type="Texture2D" uid="uid://c3ooycbteb5fq" path="res://resources/other/blood_3.png" id="2_aonk1"]
+
+[node name="BPuddle" type="Node2D" unique_id=960089534]
+script = ExtResource("1_6rppo")
+
+[node name="BloodSprite" type="Sprite2D" parent="." unique_id=1110254698]
+texture = ExtResource("2_aonk1")
+hframes = 4
+vframes = 4
