@@ -11,13 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bcv6rai03dsnb" path="res://resources/level/other/door.tscn" id="8_vdq4j"]
 [ext_resource type="PackedScene" uid="uid://3gq1e23crdt5" path="res://resources/player/scenes/player.tscn" id="10_80suk"]
 [ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="11_t6bgu"]
-[ext_resource type="Resource" uid="uid://caevroy6dqs47" path="res://resources/weapon/data/melee/katana.tres" id="12_xqp2f"]
-[ext_resource type="Resource" uid="uid://dduxnklgyte2r" path="res://resources/weapon/data/melee/katana_alt.tres" id="13_ufdek"]
-[ext_resource type="Resource" uid="uid://rpplw5xaptjk" path="res://resources/weapon/data/pistol/d_cobra.tres" id="14_t6bgu"]
-[ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="15_xqp2f"]
-[ext_resource type="Resource" uid="uid://e57utkvr4yu8" path="res://resources/weapon/data/melee/bat.tres" id="16_ufdek"]
-[ext_resource type="PackedScene" uid="uid://b5si0spc4yeqm" path="res://resources/enemy/scene/rook/rook.tscn" id="17_ho8vt"]
-[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/bm_4.tres" id="17_pgic6"]
+[ext_resource type="Resource" uid="uid://ca8lfcpgoaesf" path="res://resources/weapon/data/second/ak.tres" id="12_80suk"]
+[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/bm_4.tres" id="13_t6bgu"]
+[ext_resource type="PackedScene" uid="uid://dbiw52cfk3tbh" path="res://resources/enemy/scene/turret/turret.tscn" id="14_t6bgu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ufdek"]
 vertices = PackedVector2Array(3038.8203, 806.8672, 674.34375, 778, 714, 778, 3002, 138, 3002, -118, 3023.25, -118, 2106, 346, 714, 422, 570, 422, 570, 410, 666, 410, 666, 282, 1558, 282, 1558, 346, 2106, 86, 1946, 86, 1946, -38, 2058, -38, 2058, -118, 2294, -118, 2294, 138, 614, -166, 790, -166, 790, -138, 678, -138, 602, -150, 678, 90, 790, 90, 790, 166, 666, 166, 666, 22, 586, 22, 586, -150, 602, -326, 614, -326, 1334, 166, 906, 166, 906, 90, 1334, 90, 1334, -198, 1334, -138, 906, -138, 1018, -166, 906, -166, 1018, -198, 1702, -374, 1830, -374, 1830, -314, 1686, -314, 1686, -38, 1830, -38, 1830, 86, 1558, 86, 1558, 166, 1450, 166, 1546, 90, 1450, 90, 1546, -138, 1450, -138, 1450, -198, 1546, -198, 1546, -554, 1702, -566, 1018, -566, 1018, -554, 107.02344, -831.0078, 1014, -832.25, 1014, -570, 614, -570, 614, -442, 602, -442, 602, -490, 374, -150, 470, -150, 470, 22, 109.140625, 22, 374, -490, 3011.1563, -834.97656, 3021.289, -234, 3002, -234, 3002, -490, 2294, -490, 2294, -234, 2058, -234, 2058, -314, 1946, -314, 1946, -374, 2058, -374, 2058, -634, 1946, -634, 1946, -778, 1706, -778, 1706, -833.2031, 1830, -634, 1706, -634, 1706, -662, 1830, -662, 1594, 246, 630, 246, 826, 202, 870, 202, 2966, 102, 2330, 102, 2490, 58, 2806, 58, 630, 202, 378, 282, 2374, 58, 2966, -454, 2966, -198, 2922, -294, 2922, -410, 2330, -454, 2806, -410, 2966, -154, 2922, 58, 2922, -58, 2330, -154, 2374, -58, 630, 58, 522, 170, 522, 134, 550, 58, 630, 374, 534, 374, 3021.8984, -198, 3022.6406, -154, 358, 678, 358, 774.1328, 110.96875, 771.1172, 110.078125, 410, 1910, -598, 2022, -598, 2022, -410, 1910, -410, 1866, -74, 1910, -278, 2022, -278, 2022, -198, 1910, -74, 2490, -294, 2806, -294, 2490, -58, 2330, -198, 2490, -410, 2374, -410, 2374, -294, 2022, -154, 2022, -74, 1910, 122, 2070, 122, 2070, 310, 1594, 310, 826, 54, 714, 54, 714, -102, 826, -102, 826, -202, 650, -202, 650, -362, 566, -362, 566, -186, 550, -186, 474, 202, 474, 170, 294, 202, 342, 202, 342, 282, 534, 458, 678, 458, 678, 742, 394, 742, 394, 678, 454, 410, 454, 422, 358, 422, 394, 602, 394, 458, 490, 458, 506, -186, 410, -186, 410, -454, 566, -454, 566, -406, 650, -406, 650, -534, 982, -534, 982, -406, 1050, -406, 1050, -518, 1510, -518, 1510, -234, 1414, -234, 1414, -102, 1370, -102, 1370, -234, 1050, -362, 1050, -234, 982, -362, 982, -202, 870, -202, 1510, -102, 1510, 54, 1414, 54, 1370, 54, 1414, 202, 1370, 202, 870, -102, 870, 54, 1594, 202, 1594, 122, 1866, 122, 1722, -74, 1722, -278, 1866, -278, 1866, -410, 1738, -410, 1738, -598, 1866, -598, 1670, -698, 1670, -602, 1050, -602, 1050, -806, 1670, -806, 1670, -742, 1910, -742, 1866, -698, 358, 602, 490, 374, 122, 374, 122, 58, 294, 166, 378, 166, 506, 58, 438, 134, 438, 202, 2806, -58)
@@ -330,7 +326,7 @@ shape = SubResource("RectangleShape2D_fd101")
 
 [node name="Player" parent="." unique_id=2076669830 instance=ExtResource("10_80suk")]
 position = Vector2(212, 622)
-weapon_list = Array[ExtResource("11_t6bgu")]([ExtResource("12_xqp2f"), ExtResource("13_ufdek"), ExtResource("14_t6bgu"), ExtResource("15_xqp2f"), ExtResource("16_ufdek"), ExtResource("17_pgic6")])
+weapon_list = Array[ExtResource("11_t6bgu")]([ExtResource("12_80suk"), ExtResource("13_t6bgu")])
 
-[node name="Rook" parent="." unique_id=177161293 instance=ExtResource("17_ho8vt")]
-position = Vector2(561.95404, 575.5591)
+[node name="Turret" parent="." unique_id=177161293 instance=ExtResource("14_t6bgu")]
+position = Vector2(510.66693, 579.2969)

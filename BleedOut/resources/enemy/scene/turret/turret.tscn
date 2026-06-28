@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dbiw52cfk3tbh"]
+
+[ext_resource type="Script" uid="uid://bijso6lelca0c" path="res://resources/enemy/scene/turret/turret.gd" id="1_ht0wc"]
+[ext_resource type="Texture2D" uid="uid://d0lws8jc8m2fq" path="res://resources/enemy/sprites/turret/leg - die.png" id="2_ht0wc"]
+[ext_resource type="Resource" uid="uid://diclswbopmukr" path="res://resources/enemy/data/turret.tres" id="2_hv1pg"]
+[ext_resource type="Texture2D" uid="uid://c0wpf5dix6xr2" path="res://resources/enemy/sprites/turret/leg - idle.png" id="2_p86vq"]
+[ext_resource type="PackedScene" uid="uid://h7oul4yhohjg" path="res://resources/enemy/other/en_bullet.tscn" id="3_qfey8"]
+[ext_resource type="Texture2D" uid="uid://b41ayuosx1mnf" path="res://resources/enemy/sprites/turret/attack.png" id="4_qfey8"]
+[ext_resource type="Texture2D" uid="uid://e71r2huhdwtl" path="res://resources/enemy/sprites/turret/top - die.png" id="5_f8bvh"]
+[ext_resource type="Texture2D" uid="uid://bws4j3ufpqxme" path="res://resources/enemy/sprites/turret/idle.png" id="6_ye0ug"]
+[ext_resource type="PackedScene" uid="uid://bolg33284318o" path="res://resources/enemy/scene/other/en_hurt_box.tscn" id="7_cdn60"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8bvh"]
+atlas = ExtResource("2_p86vq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yy0a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ht0wc")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8bvh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t60n"]
+atlas = ExtResource("4_qfey8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhm68"]
+atlas = ExtResource("4_qfey8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuccs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t60n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhm68")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f8bvh")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ye0ug")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8gkt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83ce5"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouoa0"]
+size = Vector2(16, 11)
+
+[node name="Turret" type="CharacterBody2D" unique_id=177161293]
+script = ExtResource("1_ht0wc")
+data = ExtResource("2_hv1pg")
+projectile = ExtResource("3_qfey8")
+
+[node name="legs" type="AnimatedSprite2D" parent="." unique_id=1254138923]
+sprite_frames = SubResource("SpriteFrames_5yy0a")
+animation = &"idle"
+
+[node name="top" type="AnimatedSprite2D" parent="." unique_id=1526960937]
+sprite_frames = SubResource("SpriteFrames_wuccs")
+animation = &"idle"
+
+[node name="GunPoint" type="Marker2D" parent="top" unique_id=458018596]
+position = Vector2(0, -7)
+
+[node name="ShapeCast" type="ShapeCast2D" parent="top" unique_id=1289106975]
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_v8gkt")
+target_position = Vector2(0, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=753542732]
+visible = false
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_83ce5")
+
+[node name="EnHurtBox" parent="." unique_id=876803159 instance=ExtResource("7_cdn60")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnHurtBox" unique_id=458992110]
+visible = false
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_ouoa0")
+debug_color = Color(7.70092e-07, 0.63740116, 0.39664176, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1018502130]
+wait_time = 0.1
+
+[node name="NaviAgent" type="NavigationAgent2D" parent="." unique_id=835707260]
+
+[connection signal="reload_time" from="." to="." method="_on_reload_time"]
+[connection signal="animation_finished" from="top" to="." method="_on_top_animation_finished"]
+[connection signal="died" from="EnHurtBox" to="." method="_on_en_hurt_box_died"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

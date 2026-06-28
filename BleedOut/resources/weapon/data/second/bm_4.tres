@@ -6,10 +6,10 @@
 [resource]
 script = ExtResource("2_qdb1g")
 name = "BM4"
-damage = 0.5
+damage = 1.0
 scene = ExtResource("1_vhd4i")
 type = 2
 mag_cap = 8
 max_mag = 8
 spare_ammo = 32
-fire_rate = 1.0
+fire_rate = 0.4

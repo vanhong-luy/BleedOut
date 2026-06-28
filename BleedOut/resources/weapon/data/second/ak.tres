@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://ca8lfcpgoaesf"]
+
+[ext_resource type="PackedScene" uid="uid://bwa6mkqngsa54" path="res://resources/weapon/second/ak.tscn" id="1_n6l03"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_rue8d"]
+
+[resource]
+script = ExtResource("2_rue8d")
+name = "ak"
+damage = 1.0
+scene = ExtResource("1_n6l03")
+type = 2
+mag_cap = 30
+max_mag = 30
+spare_ammo = 90
+fire_rate = 0.16

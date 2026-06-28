@@ -134,6 +134,8 @@ func _on_top_frame_changed() -> void:
 		en_hit_box.set_active(false)
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -162,6 +164,8 @@ func _on_en_hurt_box_died() -> void:
 		b.z_index = -2
 
 func _on_en_hurt_box_hurted(value: float) -> void:
+	if is_dead:
+		return
 	if en_hurt_box.en_healthpoint <= shield: #shield breaks
 		for i in range(randi_range(3, 7)):
 			var b = b_fly.instantiate()

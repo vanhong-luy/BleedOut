@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://h5iel5ttijub"]
+
+[ext_resource type="Texture2D" uid="uid://dxoced2cmee84" path="res://resources/merchant/sprite/idle.png" id="1_i3p38"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v51g3"]
+radius = 8.0
+
+[node name="FakeMerchant" type="CharacterBody2D" unique_id=325808735]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=830413104]
+texture = ExtResource("1_i3p38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1360004515]
+shape = SubResource("CircleShape2D_v51g3")

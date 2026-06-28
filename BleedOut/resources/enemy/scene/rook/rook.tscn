@@ -202,7 +202,6 @@ animation = &"move"
 position = Vector2(4, -26)
 
 [node name="ShapeCast" type="ShapeCast2D" parent="top" unique_id=1289106975]
-visible = false
 rotation = 3.1415927
 shape = SubResource("RectangleShape2D_v8gkt")
 target_position = Vector2(0, 200)

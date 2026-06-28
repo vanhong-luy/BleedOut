@@ -1,3 +1,4 @@
+#this is, my, BOOMSTICK!
 extends Node2D
 
 @onready var top: AnimatedSprite2D = $"../.."
@@ -5,9 +6,14 @@ extends Node2D
 @onready var camera: Camera2D = get_viewport().get_camera_2d()
 
 #@onready var pistol_anim: AnimationPlayer = $"../../../Node2D/PistolAnim"
-
+@export var pallet = 8
+@export var spread_angle = 20 #what does he even do?
+@export var arc: float = 20
 
 const BULLET = preload("uid://cp15xcknlrfht")
+
+@onready var gunpoint: Marker2D = $Gunpoint
+
 
 var active = false
 var can_shoot = true
@@ -37,12 +43,15 @@ func shoot():
 	
 	#pistol_anim.play("attack")
 	
-	for i in range(8):
-		var bullet_instance = BULLET.instantiate()
-		get_tree().root.add_child(bullet_instance)
-		bullet_instance.global_position = global_position
-		bullet_instance.rotation = top.rotation + deg_to_rad(-90)
-		bullet_instance.damage = w.damage
+	for i in range(pallet):
+		var arc_rad = deg_to_rad(randf_range(-arc, arc))
+		var bullet = BULLET.instantiate()
+		get_tree().root.add_child(bullet)
+		bullet.global_position = gunpoint.global_position
+		bullet.damage = w.damage
+		
+		var offset = randf_range(-arc_rad, arc_rad)
+		bullet.rotation = top.rotation + deg_to_rad(-90) + offset
 	camera.applyShake()
 	
 	await get_tree().create_timer(w.fire_rate).timeout

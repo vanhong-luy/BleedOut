@@ -55,3 +55,5 @@ solved: added sentry, a shield enemy
 
 problem: try to solve the pickup item
 solved
+
+problem: add green laser to sniper

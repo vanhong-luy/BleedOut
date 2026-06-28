@@ -478,6 +478,10 @@ func switch_weapon_prev():
 	
 func _update_holding_state():
 	
+	if weapons.is_empty() or current_weapon >= weapons.size() or current_weapon < 0:
+		current_weapon = 0
+		return
+	
 	var t = weapons[current_weapon].type
 	
 	#disable the gun first

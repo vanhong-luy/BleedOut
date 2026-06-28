@@ -166,6 +166,9 @@ func _on_top_frame_changed() -> void:
 		en_hit_box.set_active(false)
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
+	
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -227,6 +230,8 @@ func start_leap() -> void:
 
 
 func _on_en_hurt_box_hurted(value: float) -> void:
+	if is_dead:
+		return
 	for i in range(randi_range(5, 10)):
 		var b = b_spread.instantiate()
 		get_tree().current_scene.add_child(b)

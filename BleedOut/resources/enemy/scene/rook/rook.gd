@@ -38,8 +38,8 @@ var b_heal = preload("res://resources/other/b_heal.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
 
 @export var speed: float = 150
-var min_dis: float = 100
-var max_dis: float = 200
+var min_dis: float = 50
+var max_dis: float = 150
 
 @export var projectile: PackedScene
 @onready var timer: Timer = $Timer
@@ -51,7 +51,6 @@ var is_attack = false
 var can_attack: bool = true
 
 var is_outside_melee_range = true
-var stop_dis = 30
 
 signal died
 
@@ -88,18 +87,21 @@ func _physics_process(_delta):
 		top.rotation = direction.angle() + deg_to_rad(90)
 		
 		if distance <= min_dis:
-			if shape_cast.get_collider(0) == player:
+			if shape_cast.is_colliding() and shape_cast.get_collider(0) == player:
 				velocity = -direction * (speed / 2)
 				legs.rotation = direction.angle() + deg_to_rad(90)
 				legs.play("move")
+				#print("i am first if")
 				attack()
 		elif distance >= max_dis:
 			velocity = direction * speed
 			legs.rotation = direction.angle() + deg_to_rad(90)
 			legs.play("move")
-		elif shape_cast.get_collider(0) == player:
+			#print("i am second if")
+		elif shape_cast.is_colliding() and shape_cast.get_collider(0) == player:
 			velocity = Vector2.ZERO
 			legs.play("idle")
+			#print("i am third if")
 			#top.play("move_range")
 			attack()
 
@@ -123,6 +125,8 @@ func _on_top_animation_finished() -> void:
 		top.play("attack")
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -158,6 +162,8 @@ func _on_en_hurt_box_died() -> void:
 		#b.z_index = -1
 	
 func _on_en_hurt_box_hurted(value: float) -> void:
+	if is_dead:
+		return
 	for i in range(randi_range(5, 10)):
 		var b = b_spread.instantiate()
 		get_tree().current_scene.add_child(b)

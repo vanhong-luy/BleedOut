@@ -9,3 +9,6 @@ script = ExtResource("1_4cfl5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644982862]
 position = Vector2(1, -10)
 texture = ExtResource("1_ahdhu")
+
+[node name="Gunpoint" type="Marker2D" parent="." unique_id=485830001]
+position = Vector2(1, -21)

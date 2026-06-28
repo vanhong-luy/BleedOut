@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cyxjv8cu78lrj" path="res://resources/item/item.gd" id="1_p0cb8"]
 
 [node name="Item" type="Area2D" unique_id=1756751037]
+editor_description = "I am itemfrom item.gd"
 script = ExtResource("1_p0cb8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

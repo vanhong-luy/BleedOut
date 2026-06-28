@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwa6mkqngsa54"]
+
+[ext_resource type="Script" uid="uid://b1dosgnw4l83m" path="res://resources/weapon/second/ak.gd" id="1_2ohiw"]
+[ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="2_crjoj"]
+
+[node name="AK" type="Node2D" unique_id=1105835885]
+script = ExtResource("1_2ohiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644982862]
+position = Vector2(1, -10)
+texture = ExtResource("2_crjoj")

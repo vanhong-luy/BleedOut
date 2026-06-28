@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="3_bccv6"]
 [ext_resource type="Texture2D" uid="uid://ccknef18a7fgt" path="res://resources/player/range - pistol.png" id="4_ll4mm"]
 [ext_resource type="Texture2D" uid="uid://cg8xugji8qtf0" path="res://resources/player/melee.png" id="4_pk0xo"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="4_q8bgf"]
+[ext_resource type="Resource" uid="uid://rpplw5xaptjk" path="res://resources/weapon/data/pistol/d_cobra.tres" id="4_r5ieu"]
 [ext_resource type="Texture2D" uid="uid://dpfxivoblffpi" path="res://resources/player/range - secondary.png" id="5_q5dse"]
 [ext_resource type="PackedScene" uid="uid://ybwiagi0yk5c" path="res://resources/player/scenes/hurt_box.tscn" id="9_7nlgy"]
 [ext_resource type="Texture2D" uid="uid://d3trcv3inn00c" path="res://resources/player/sharp_atk_alt.png" id="9_n5h3t"]
@@ -1100,7 +1100,7 @@ fill_to = Vector2(1, 0.46244133)
 [node name="Player" type="CharacterBody2D" unique_id=2076669830 groups=["player"]]
 z_index = 1
 script = ExtResource("2_vvpx2")
-weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_q8bgf")])
+weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_r5ieu")])
 
 [node name="legs" type="AnimatedSprite2D" parent="." unique_id=1411536289]
 z_index = -2

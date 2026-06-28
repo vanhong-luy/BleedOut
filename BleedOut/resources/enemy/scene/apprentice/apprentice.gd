@@ -119,6 +119,8 @@ func _on_top_animation_finished() -> void:
 		top.play("attack")
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -154,6 +156,9 @@ func _on_en_hurt_box_died() -> void:
 		#b.z_index = -1
 	
 func _on_en_hurt_box_hurted(value: float) -> void:
+	if is_dead:
+		return
+	
 	for i in range(randi_range(5, 10)):
 		var b = b_spread.instantiate()
 		get_tree().current_scene.add_child(b)
