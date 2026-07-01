@@ -769,7 +769,7 @@ tile_map_data = PackedByteArray("AABYADUAAQADAAEAAABYADYAAQADAAEAAABYADcAAQADAAE
 tile_set = SubResource("TileSet_yecdg")
 
 [node name="PlayerSpawn" parent="." unique_id=1702493624 instance=ExtResource("7_2cod4")]
-position = Vector2(1066, 350)
+position = Vector2(1415, -36)
 limit_right = 2325
 limit_bottom = 1150
 

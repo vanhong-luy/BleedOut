@@ -20,9 +20,9 @@ var b_fly = preload("res://resources/other/b_fly.tscn")
 @export var speed: float = 150
 
 @onready var ray_cast: RayCast2D = $top/RayCast2D
-var min_dis: float = 75
+var min_dis: float = 30
 var max_dis: float = 150
-var stop_dis = 50
+var stop_dis = 25
 
 @export var projectile: PackedScene
 @onready var timer: Timer = $Timer
@@ -47,12 +47,8 @@ func _ready() -> void:
 	en_hurt_box.en_healthpoint = data.healthpoint
 	
 	#And little girls from Sweden dream of silver screen quotation
-	#top.animation = "die_1"
-	#top.animation = "die_2"
-	#top.animation = "die_3"
-	#top.animation = "die_4"
 
-	death_list = ["die_1", "die_2", "die_3", "die_4"]
+	death_list = ["die_1", "die_2"]
 	
 	can_attack = false
 	await get_tree().create_timer(1.0).timeout
@@ -92,7 +88,7 @@ func _physics_process(_delta):
 		elif ray_cast.is_colliding() and ray_cast.get_collider() == player:
 			velocity = Vector2.ZERO
 			legs.play("idle")
-			top.play("idle")
+			#top.play("idle")
 			attack()
 		else:
 			velocity = direction * speed
@@ -182,9 +178,11 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 		b.z_index = -2
 
 func attack():
+	if is_dead:
+		return
 	if not can_attack:
 		return
-		
+	top.play("attack")
 	can_attack = false
 	timer.start()
 	

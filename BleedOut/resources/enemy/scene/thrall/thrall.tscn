@@ -222,7 +222,7 @@ size = Vector2(24, 10)
 size = Vector2(24, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1td5"]
-size = Vector2(24, 18)
+size = Vector2(24, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cgu5"]
 size = Vector2(24, 14)
@@ -259,7 +259,7 @@ debug_color = Color(0.9676396, 0, 0.47600895, 0.41960785)
 [node name="en_melee_range" parent="." unique_id=432587459 instance=ExtResource("12_q0l4a")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="en_melee_range" unique_id=934964893]
-position = Vector2(-1, -13)
+position = Vector2(-1, -12)
 shape = SubResource("RectangleShape2D_s1td5")
 
 [node name="LeapArea" parent="." unique_id=1635944694 instance=ExtResource("13_38a8o")]

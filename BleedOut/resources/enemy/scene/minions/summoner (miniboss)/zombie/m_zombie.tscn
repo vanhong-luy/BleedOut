@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cxmuhyo8d6w5l" path="res://resources/enemy/sprites/zombie/die_2.png" id="6_7fcps"]
 [ext_resource type="Texture2D" uid="uid://crm5p0bv16gui" path="res://resources/enemy/sprites/zombie/die_3.png" id="7_xhhtb"]
 [ext_resource type="Texture2D" uid="uid://ejbl60xelk2s" path="res://resources/enemy/sprites/zombie/die_4.png" id="8_14b67"]
-[ext_resource type="Texture2D" uid="uid://drlyt2kuqpju8" path="res://resources/enemy/sprites/zombie/moving - top.png" id="9_uha2g"]
 [ext_resource type="PackedScene" uid="uid://bolg33284318o" path="res://resources/enemy/scene/other/en_hurt_box.tscn" id="10_osb7r"]
 [ext_resource type="PackedScene" uid="uid://b5vnvf6s8n81n" path="res://resources/enemy/scene/other/en_hit_box.tscn" id="11_ccgki"]
 [ext_resource type="PackedScene" uid="uid://bgmv0yo36n0f7" path="res://resources/enemy/scene/other/en_melee_range.tscn" id="12_hfs32"]
@@ -135,8 +134,8 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("8_14b67")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rb6de"]
-atlas = ExtResource("9_uha2g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjji8"]
+atlas = ExtResource("4_hi0ae")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvdrf"]
@@ -196,7 +195,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rb6de")
+"texture": SubResource("AtlasTexture_cjji8")
 }],
 "loop": true,
 "name": &"idle",
@@ -233,7 +232,7 @@ animation = &"move"
 
 [node name="top" type="AnimatedSprite2D" parent="." unique_id=2092091315]
 sprite_frames = SubResource("SpriteFrames_14dgy")
-animation = &"die_2"
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=509246886]
 shape = SubResource("CircleShape2D_syvrr")

@@ -63,6 +63,10 @@ var health = 100
 var invincible = false #[TITLE CARD]
 var is_dead = false
 
+#Trans
+var trans_cooldown: float = 0.5
+var trans_timer: float = 0.0
+
 @export var weapon_list: Array[WeaponData] = []  # drag .tres files here. No not here, in Inspector
 var weapons = []
 var current_weapon = 0
@@ -107,6 +111,7 @@ func _ready() -> void:
 				"mag_cap": data.mag_cap, #amount of bullet in a round
 				"max_mag": data.max_mag, #total amount of bullet in a round
 				"spare_ammo": data.spare_ammo, #some extra ammo
+				"max_spare": data.max_spare, #amount of extra a gun can hold
 				"fire_rate": data.fire_rate
 				}
 			)
@@ -198,6 +203,19 @@ func _physics_process(_delta):
 	if is_reloading:
 		pistol_anim.play("pistol_reload")
 		
+	if Input.is_action_pressed("trans") and health > 20:
+		#trans = transfer btw
+		trans_timer -= _delta
+		var weapon = weapons[current_weapon]
+		if weapon.type == WeaponData.Type.pistol and weapon.spare_ammo < weapon.max_spare and trans_timer <= 0:
+			health -= 5
+			weapons[current_weapon].spare_ammo += 1
+			trans_timer = trans_cooldown
+		elif weapon.type == WeaponData.Type.second and weapon.spare_ammo < weapon.max_spare:
+			health -= 10
+			weapons[current_weapon].spare_ammo += 1
+			trans_timer = trans_cooldown
+	
 	if Input.is_action_just_pressed("attack") and can_melee and swing_amount > 0:
 		
 		if is_holding_melee:

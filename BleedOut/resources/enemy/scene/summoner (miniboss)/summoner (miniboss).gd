@@ -59,7 +59,7 @@ func _ready() -> void:
 	can_attack = true
 	
 	#You've got another thing comin'
-	death_list = ["die_1", "die_2", "die_3", "die_4"]
+	death_list = ["die_1", "die_2"]
 	
 	summon_cooldown.timeout.connect(summon)
 	summon_cooldown.start()
@@ -95,7 +95,7 @@ func _physics_process(_delta):
 		else:
 			velocity = Vector2.ZERO
 			legs.play("idle")
-			top.play("idle")
+			#top.play("idle")
 			attack()
 
 	move_and_slide()
@@ -103,7 +103,7 @@ func _physics_process(_delta):
 func _on_top_animation_finished() -> void:
 	if is_dead:
 		return
-	if not is_outside_melee_range:
+	if is_attack:
 		top.play("attack")
 
 func _on_en_hurt_box_died() -> void:
@@ -152,9 +152,13 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 func attack():
 	if not can_attack:
 		return
-		
 	can_attack = false
+	top.play("attack")
+	await get_tree().create_timer(0.35).timeout
+	if is_dead:
+		return
 	timer.start()
+
 	
 	var ball = projectile.instantiate()
 	get_tree().root.add_child(ball)

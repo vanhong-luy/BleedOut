@@ -147,6 +147,8 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 		b.z_index = -2
 
 func attack():
+	if is_dead:
+		return
 	if not can_attack:
 		return
 	if is_reloading:
@@ -154,6 +156,8 @@ func attack():
 	can_attack = false
 	line.default_color = Color(0, 1, 0, 1)
 	await get_tree().create_timer(0.25).timeout
+	if is_dead:
+		return
 	camera.applyShake()
 	top.play("attack")
 	line.default_color = Color(1, 0, 0, 1)
@@ -162,6 +166,7 @@ func attack():
 	current_ammo += 1
 	
 	var ball = projectile.instantiate()
+	ball.bullet_speed = 1500
 	get_tree().root.add_child(ball)
 	ball.global_position = gun_point.global_position
 	ball.rotation = top.rotation + deg_to_rad(-90)

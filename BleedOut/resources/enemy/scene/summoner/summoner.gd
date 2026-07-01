@@ -58,7 +58,7 @@ func _ready() -> void:
 	en_hurt_box.en_healthpoint = data.healthpoint
 	can_attack = false
 	#You've got another thing comin'
-	death_list = ["die_1", "die_2", "die_3", "die_4"]
+	death_list = ["die_1", "die_2"]
 	await get_tree().create_timer(1.5).timeout
 	can_attack = true
 	
@@ -102,7 +102,7 @@ func _physics_process(_delta):
 		else:
 			velocity = Vector2.ZERO
 			legs.play("idle")
-			top.play("idle")
+			#top.play("idle")
 			attack()
 
 	move_and_slide()
@@ -121,7 +121,7 @@ func navigating():
 func _on_top_animation_finished() -> void:
 	if is_dead:
 		return
-	if not is_outside_melee_range:
+	if is_attack:
 		top.play("attack")
 
 func _on_en_hurt_box_died() -> void:
@@ -170,8 +170,11 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 func attack():
 	if not can_attack:
 		return
-		
 	can_attack = false
+	top.play("attack")
+	await get_tree().create_timer(0.35).timeout
+	if is_dead:
+		return
 	timer.start()
 	
 	var ball = projectile.instantiate()

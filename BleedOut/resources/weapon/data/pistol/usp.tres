@@ -12,4 +12,5 @@ type = 3
 mag_cap = 12
 max_mag = 12
 spare_ammo = 48
+max_spare = 48
 fire_rate = 0.17

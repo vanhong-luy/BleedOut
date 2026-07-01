@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b660rxjcreitx" path="res://resources/enemy/scene/rook/rook.gd" id="1_yreik"]
 [ext_resource type="Resource" uid="uid://cb2huoyxo4osp" path="res://resources/enemy/data/apprentice.tres" id="2_651is"]
 [ext_resource type="PackedScene" uid="uid://h7oul4yhohjg" path="res://resources/enemy/other/en_bullet.tscn" id="3_u8fys"]
-[ext_resource type="Texture2D" uid="uid://udnempt5q0nm" path="res://resources/enemy/sprites/apprentice/moving - leg.png" id="4_u8fys"]
 [ext_resource type="Texture2D" uid="uid://b5qnewinl4ibu" path="res://resources/enemy/sprites/rook/attack.png" id="5_651is"]
 [ext_resource type="Texture2D" uid="uid://dwovdvuiaccj7" path="res://resources/enemy/sprites/rook/moving - leg.png" id="5_v8gkt"]
 [ext_resource type="Texture2D" uid="uid://cb3awvaqu3hn7" path="res://resources/enemy/sprites/rook/die_1.png" id="7_u8fys"]
@@ -11,11 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b5uh10fuvxjy4" path="res://resources/enemy/sprites/rook/die_3.png" id="9_kicos"]
 [ext_resource type="PackedScene" uid="uid://bolg33284318o" path="res://resources/enemy/scene/other/en_hurt_box.tscn" id="10_0rw5a"]
 [ext_resource type="Texture2D" uid="uid://heuieayl3eei" path="res://resources/enemy/sprites/rook/die_4.png" id="10_o6i2r"]
-[ext_resource type="Texture2D" uid="uid://eop22ndlv8i1" path="res://resources/enemy/sprites/rook/idle.png" id="11_0w12c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmhbe"]
-atlas = ExtResource("4_u8fys")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_651is"]
+atlas = ExtResource("5_v8gkt")
+region = Rect2(128, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icxvg"]
 atlas = ExtResource("5_v8gkt")
@@ -61,7 +59,7 @@ region = Rect2(0, 192, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wmhbe")
+"texture": SubResource("AtlasTexture_651is")
 }],
 "loop": true,
 "name": &"idle",
@@ -103,26 +101,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v8gkt"]
-atlas = ExtResource("5_651is")
-region = Rect2(0, 64, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8fys"]
 atlas = ExtResource("5_651is")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xtyt2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8gkt"]
 atlas = ExtResource("5_651is")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yreik"]
+atlas = ExtResource("5_651is")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b4yx"]
+atlas = ExtResource("5_651is")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wuccs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v8gkt")
+"texture": SubResource("AtlasTexture_u8fys")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u8fys")
+"texture": SubResource("AtlasTexture_v8gkt")
 }],
 "loop": false,
 "name": &"attack",
@@ -162,7 +164,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_0w12c")
+"texture": SubResource("AtlasTexture_yreik")
 }],
 "loop": true,
 "name": &"idle",
@@ -170,7 +172,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xtyt2")
+"texture": SubResource("AtlasTexture_0b4yx")
 }],
 "loop": true,
 "name": &"move",

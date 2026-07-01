@@ -5,16 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://h7oul4yhohjg" path="res://resources/enemy/other/en_bullet.tscn" id="3_cgnoc"]
 [ext_resource type="Texture2D" uid="uid://b5a1qx5ptpbls" path="res://resources/enemy/sprites/sniper/moving - leg.png" id="3_j6nsg"]
 [ext_resource type="Texture2D" uid="uid://b0ijfhuse3otu" path="res://resources/enemy/sprites/sniper/attack.png" id="4_j6nsg"]
-[ext_resource type="Texture2D" uid="uid://udnempt5q0nm" path="res://resources/enemy/sprites/apprentice/moving - leg.png" id="4_s0a86"]
+[ext_resource type="Texture2D" uid="uid://c05s24m4pgusk" path="res://resources/enemy/sprites/21guns/moving - leg.png" id="4_yangy"]
 [ext_resource type="Texture2D" uid="uid://cx16lgcges7bq" path="res://resources/enemy/sprites/sniper/die_1.png" id="5_j6nsg"]
 [ext_resource type="Texture2D" uid="uid://b68acm408uo5h" path="res://resources/enemy/sprites/sniper/die_2.png" id="6_yangy"]
 [ext_resource type="Texture2D" uid="uid://bm5dgkuwgyeht" path="res://resources/enemy/sprites/sniper/die_3.png" id="7_bctgy"]
 [ext_resource type="Texture2D" uid="uid://bowu8havrdgx3" path="res://resources/enemy/sprites/sniper/die_4.png" id="8_5dm8g"]
 [ext_resource type="PackedScene" uid="uid://bolg33284318o" path="res://resources/enemy/scene/other/en_hurt_box.tscn" id="12_q3y1l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmhbe"]
-atlas = ExtResource("4_s0a86")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kjol"]
+atlas = ExtResource("4_yangy")
+region = Rect2(128, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yangy"]
 atlas = ExtResource("3_j6nsg")
@@ -60,7 +60,7 @@ region = Rect2(0, 192, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wmhbe")
+"texture": SubResource("AtlasTexture_7kjol")
 }],
 "loop": true,
 "name": &"idle",
@@ -181,11 +181,11 @@ projectile = ExtResource("3_cgnoc")
 
 [node name="legs" type="AnimatedSprite2D" parent="." unique_id=1254138923]
 sprite_frames = SubResource("SpriteFrames_5yy0a")
-animation = &"move"
+animation = &"idle"
 
 [node name="top" type="AnimatedSprite2D" parent="." unique_id=1526960937]
 sprite_frames = SubResource("SpriteFrames_wuccs")
-animation = &"idle"
+animation = &"attack"
 
 [node name="GunPoint" type="Marker2D" parent="top" unique_id=458018596]
 position = Vector2(4, -15)

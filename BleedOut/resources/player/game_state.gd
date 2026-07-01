@@ -43,8 +43,10 @@ func load_player(scene_root):
 			player.global_position = spawn.global_position
 			_apply_camera(player, spawn)
 		if saved_data != null and !saved_data.is_empty():
-			player.health = saved_data.health
-			player.hurt_box.healthpoint = saved_data.health
+			# if you want it to load player's previous health,
+			# use this saved_data.health on both 100
+			player.health = 100
+			player.hurt_box.healthpoint = 100
 			player.current_weapon = saved_data.current_weapon
 			for i in range(player.weapons.size()):
 				if i < saved_data.ammo.size():

@@ -214,6 +214,8 @@ func _on_murica_mode_body_exited(body: Node2D) -> void:
 		top.play("move_melee")
 
 func attack_range():
+	if is_dead:
+		return
 	if not can_attack:
 		return
 	if is_reloading:

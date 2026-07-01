@@ -74,10 +74,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8gkt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_83ce5"]
-radius = 7.0
+radius = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouoa0"]
-size = Vector2(16, 11)
+size = Vector2(15, 15)
 
 [node name="Turret" type="CharacterBody2D" unique_id=177161293]
 script = ExtResource("1_ht0wc")
@@ -96,20 +96,19 @@ animation = &"idle"
 position = Vector2(0, -7)
 
 [node name="ShapeCast" type="ShapeCast2D" parent="top" unique_id=1289106975]
+visible = false
 rotation = 3.1415927
 shape = SubResource("RectangleShape2D_v8gkt")
 target_position = Vector2(0, 250)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=753542732]
-visible = false
-position = Vector2(-1, 1)
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_83ce5")
 
 [node name="EnHurtBox" parent="." unique_id=876803159 instance=ExtResource("7_cdn60")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnHurtBox" unique_id=458992110]
-visible = false
-position = Vector2(-1, 1.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ouoa0")
 debug_color = Color(7.70092e-07, 0.63740116, 0.39664176, 0.41960785)
 

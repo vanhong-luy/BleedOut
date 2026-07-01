@@ -67,7 +67,7 @@ func _ready() -> void:
 	
 	# Forfeit the game before somebody else and puts your name to shame
 
-	death_list = ["die_1", "die_2", "die_3", "die_4"]
+	death_list = ["die_1", "die_2"]
 	
 	can_attack = false
 	await get_tree().create_timer(1.0).timeout
@@ -190,13 +190,18 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 		b.z_index = -2
 
 func attack():
+	if is_dead:
+		return
 	if not can_attack:
 		return
 	if is_reloading:
 		return
+	can_attack = false
+	await get_tree().create_timer(0.25).timeout
+	if is_dead:
+		return
 	camera.applyShake()
 	top.play("attack")
-	can_attack = false
 	timer.start()
 	
 	current_ammo += 1
