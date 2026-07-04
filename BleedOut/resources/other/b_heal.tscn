@@ -13,7 +13,7 @@ shape = SubResource("CircleShape2D_rh4y7")
 
 [node name="BloodSprite" type="Sprite2D" parent="." unique_id=2072495145]
 texture = ExtResource("2_sdcws")
-hframes = 4
+hframes = 8
 vframes = 4
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

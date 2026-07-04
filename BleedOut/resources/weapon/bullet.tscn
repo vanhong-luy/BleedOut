@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cnesrxnyy5jwo" path="res://resources/weapon/bullet.gd" id="1_lmtld"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmtld"]
-size = Vector2(4, 1)
+size = Vector2(12, 1)
 
 [node name="Bullet" type="Area2D" unique_id=1944454436]
 script = ExtResource("1_lmtld")
@@ -13,7 +13,7 @@ script = ExtResource("1_lmtld")
 texture = ExtResource("1_adjqk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699360777]
-position = Vector2(4, -0.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_lmtld")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1190192969]

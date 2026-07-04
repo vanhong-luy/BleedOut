@@ -8,5 +8,5 @@ script = ExtResource("1_mvpb3")
 
 [node name="BloodSprite" type="Sprite2D" parent="." unique_id=98174222]
 texture = ExtResource("2_waxcj")
-hframes = 4
+hframes = 8
 vframes = 4

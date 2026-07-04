@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmtld"]
 size = Vector2(18, 20)
 
-[node name="Projectile" type="Area2D" unique_id=1944454436]
+[node name="Shockwave" type="Area2D" unique_id=1944454436]
 script = ExtResource("1_kiy5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=295313198]

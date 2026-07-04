@@ -211,7 +211,7 @@ func _physics_process(_delta):
 			health -= 5
 			weapons[current_weapon].spare_ammo += 1
 			trans_timer = trans_cooldown
-		elif weapon.type == WeaponData.Type.second and weapon.spare_ammo < weapon.max_spare:
+		elif weapon.type == WeaponData.Type.second and weapon.spare_ammo < weapon.max_spare and trans_timer <= 0:
 			health -= 10
 			weapons[current_weapon].spare_ammo += 1
 			trans_timer = trans_cooldown

@@ -58,6 +58,7 @@ func pick_up():
 		"mag_cap": item.mag_cap,
 		"max_mag": item.max_mag,
 		"spare_ammo": item.spare_ammo,
+		"max_spare": item.max_spare,
 		"fire_rate": item.fire_rate
 	})
 	player.weapon_list.append(item)

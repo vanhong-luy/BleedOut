@@ -8,7 +8,8 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="3_bccv6"]
 [ext_resource type="Texture2D" uid="uid://ccknef18a7fgt" path="res://resources/player/range - pistol.png" id="4_ll4mm"]
 [ext_resource type="Texture2D" uid="uid://cg8xugji8qtf0" path="res://resources/player/melee.png" id="4_pk0xo"]
-[ext_resource type="Resource" uid="uid://rpplw5xaptjk" path="res://resources/weapon/data/pistol/d_cobra.tres" id="4_r5ieu"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="4_r5ieu"]
+[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/bm_4.tres" id="5_bccv6"]
 [ext_resource type="Texture2D" uid="uid://dpfxivoblffpi" path="res://resources/player/range - secondary.png" id="5_q5dse"]
 [ext_resource type="PackedScene" uid="uid://ybwiagi0yk5c" path="res://resources/player/scenes/hurt_box.tscn" id="9_7nlgy"]
 [ext_resource type="Texture2D" uid="uid://d3trcv3inn00c" path="res://resources/player/sharp_atk_alt.png" id="9_n5h3t"]
@@ -379,6 +380,16 @@ animations = [{
 "name": &"sharp_idle",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_dqk3q"]
+offsets = PackedFloat32Array(0, 0.7706767, 1)
+colors = PackedColorArray(0.6, 0.6, 0.6, 1, 0.21107751, 0.21107751, 0.21107751, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_331kr"]
+gradient = SubResource("Gradient_dqk3q")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.46244133)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qqba"]
 radius = 6.0
@@ -1083,20 +1094,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is6jk"]
 size = Vector2(24, 16)
 
-[sub_resource type="Gradient" id="Gradient_dqk3q"]
-offsets = PackedFloat32Array(0.09398496, 0.34210527, 1)
-colors = PackedColorArray(0.21107751, 0.21107751, 0.21107751, 1, 0.6, 0.6, 0.6, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_331kr"]
-gradient = SubResource("Gradient_dqk3q")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.46244133)
-
 [node name="Player" type="CharacterBody2D" unique_id=2076669830 groups=["player"]]
 z_index = 1
 script = ExtResource("2_vvpx2")
-weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_r5ieu")])
+weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_r5ieu"), ExtResource("5_bccv6")])
 
 [node name="legs" type="AnimatedSprite2D" parent="." unique_id=1411536289]
 z_index = -2
@@ -1123,6 +1124,11 @@ rotation = 1.5707964
 [node name="SecondHand" type="Node2D" parent="top" unique_id=3622466]
 position = Vector2(3, 5)
 rotation = 1.5707964
+
+[node name="PointLight2D" type="PointLight2D" parent="top" unique_id=1546518697]
+scale = Vector2(1.5, 1.5)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_331kr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1310284868]
 shape = SubResource("CircleShape2D_5qqba")
@@ -1227,15 +1233,9 @@ size_flags_vertical = 8
 script = ExtResource("23_mgxj2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125960287]
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(1.5, 1.5)
 editor_draw_limits = true
 script = ExtResource("20_xh10n")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=748829820]
-visible = false
-scale = Vector2(1.5, 1.5)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_331kr")
 
 [connection signal="died" from="HurtBox" to="." method="_on_hurt_box_died"]
 [connection signal="hurted" from="HurtBox" to="." method="_on_hurt_box_hurted"]

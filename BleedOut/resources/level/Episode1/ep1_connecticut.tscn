@@ -419,3 +419,8 @@ next_scene = "res://resources/level/Episode1/ep1_barrack/ep1_barrack_1.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transition" unique_id=1993892634]
 position = Vector2(-1.5, 5)
 shape = SubResource("RectangleShape2D_le3ae")
+
+[node name="Lights" type="Node2D" parent="." unique_id=1413288972]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=88353772]
+color = Color(0.23799998, 0.38430005, 0.7, 1)

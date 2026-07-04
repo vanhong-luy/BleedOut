@@ -274,7 +274,7 @@ shape = SubResource("RectangleShape2D_ouoa0")
 debug_color = Color(7.70092e-07, 0.63740116, 0.39664176, 0.41960785)
 
 [node name="Timer" type="Timer" parent="." unique_id=1018502130]
-wait_time = 1.25
+wait_time = 2.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2011689519]
 

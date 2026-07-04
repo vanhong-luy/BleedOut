@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dpkk555gonx2k"]
+
+[ext_resource type="Script" uid="uid://cvvk7pg8ysy30" path="res://resources/enemy/scene/blood_type/shockwave.gd" id="1_1x02h"]
+[ext_resource type="Texture2D" uid="uid://bp0u5vfokc0ww" path="res://resources/enemy/sprites/blood_type/big ahh shockwave.png" id="2_0yix6"]
+[ext_resource type="Script" uid="uid://b0k5orokdj84o" path="res://resources/enemy/scene/blood_type/trail.gd" id="3_0yix6"]
+[ext_resource type="Script" uid="uid://suygduw50cg0" path="res://resources/enemy/scene/blood_type/trail_sprite.gd" id="3_dgfv0"]
+[ext_resource type="Texture2D" uid="uid://dedqsfpe8mu36" path="res://resources/enemy/sprites/blood_type/big ahh shockwave trail.png" id="4_4o81x"]
+
+[sub_resource type="Curve" id="Curve_4o81x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmtld"]
+size = Vector2(148, 20)
+
+[node name="Projectile" type="Area2D" unique_id=1944454436]
+script = ExtResource("1_1x02h")
+
+[node name="TrailSprite" type="Sprite2D" parent="." unique_id=295313198]
+z_index = 2
+rotation = -3.1415927
+texture = ExtResource("2_0yix6")
+hframes = 2
+vframes = 2
+script = ExtResource("3_dgfv0")
+
+[node name="Trail" type="Line2D" parent="TrailSprite" unique_id=153603070]
+top_level = true
+texture_filter = 2
+texture_repeat = 2
+closed = true
+width = 50.0
+width_curve = SubResource("Curve_4o81x")
+texture = ExtResource("4_4o81x")
+texture_mode = 1
+script = ExtResource("3_0yix6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699360777]
+position = Vector2(-52, 0)
+shape = SubResource("RectangleShape2D_lmtld")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1190192969]
+position = Vector2(-27, 0)
+rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
+target_position = Vector2(-1.544469e-06, 35.333336)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

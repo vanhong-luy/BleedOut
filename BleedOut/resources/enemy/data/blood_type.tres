@@ -1,3 +1,8 @@
-[gd_resource type="Resource" format=3 uid="uid://7j5hldawta3k"]
+[gd_resource type="Resource" script_class="Enemy" format=3 uid="uid://7j5hldawta3k"]
+
+[ext_resource type="Script" uid="uid://bj8xngqsw3a6j" path="res://resources/enemy/data/enemy.gd" id="1_6xos2"]
 
 [resource]
+script = ExtResource("1_6xos2")
+name = "blood_type"
+healthpoint = 100.0

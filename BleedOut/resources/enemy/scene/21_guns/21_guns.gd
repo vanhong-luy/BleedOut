@@ -27,7 +27,7 @@ var b_spread = preload("res://resources/other/b_spread.tscn")
 var b_heal = preload("res://resources/other/b_heal.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
 
-@export var speed: float = 200
+@export var speed: float = 180
 var min_dis: float = 100
 var max_dis: float = 150
 
@@ -97,18 +97,15 @@ func _physics_process(_delta):
 		
 		if is_range:
 			is_melee = false
-			if distance <= min_dis:
-				if shape_cast.get_collider(0) == player:
-					velocity = -direction * (speed / 2)
-					legs.rotation = direction.angle() + deg_to_rad(90)
-					legs.play("move")
-					attack_range()
-			elif distance >= max_dis:
+			if distance >= max_dis:
 				velocity = direction * speed
 				legs.rotation = direction.angle() + deg_to_rad(90)
 				legs.play("move")
-			elif shape_cast.get_collider(0) == player:
-				velocity = Vector2.ZERO
+			elif shape_cast.is_colliding():
+				if shape_cast.get_collider(0) == player:
+					velocity = Vector2.ZERO
+				else:
+					velocity = direction * speed
 				legs.play("idle")
 				#top.play("move_range")
 				attack_range()

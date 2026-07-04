@@ -39,8 +39,6 @@ var is_charging = false
 var launch_force = 1000
 
 
-#problem: need to make a bunch of death pose, then stuff em in here, then randomize enemy death pose
-#solved: down there :D
 var death_list:= []
 
 func _ready() -> void:
@@ -58,7 +56,6 @@ func _ready() -> void:
 	#top.animation = "die_4"
 
 	death_list = ["die_1", "die_2", "die_3", "die_4"]
-	pass
 
 func _physics_process(_delta):
 	if is_dead:

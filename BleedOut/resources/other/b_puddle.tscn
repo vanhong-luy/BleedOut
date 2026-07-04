@@ -8,5 +8,5 @@ script = ExtResource("1_6rppo")
 
 [node name="BloodSprite" type="Sprite2D" parent="." unique_id=1110254698]
 texture = ExtResource("2_aonk1")
-hframes = 4
+hframes = 8
 vframes = 4

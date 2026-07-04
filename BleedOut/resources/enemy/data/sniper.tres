@@ -6,4 +6,4 @@
 script = ExtResource("1_fi50o")
 name = "Sniper"
 healthpoint = 2.0
-damage = 40
+damage = 60
