@@ -22,6 +22,7 @@ var b_puddle = preload("res://resources/other/b_puddle.tscn")
 var b_spread = preload("res://resources/other/b_spread.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
 var b_heal = preload("res://resources/other/b_heal.tscn")
+var e_die = preload("res://resources/enemy/death/zombie_die.tscn")
 
 
 @export var speed: float = 150
@@ -39,6 +40,7 @@ var is_outside_melee_range = true
 var death_list:= []
 
 func _ready() -> void:
+	#print(data.name,"'s Score: ",data.score)
 	
 	en_hit_box.damage = data.damage
 	en_hurt_box.en_healthpoint = data.healthpoint
@@ -139,27 +141,34 @@ func _on_top_frame_changed() -> void:
 		en_hit_box.set_active(false)
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
+	player.total_score += data.score
 	velocity = Vector2.ZERO
-	top.play(death_list.pick_random())
 	top.z_index = -1
 	legs.stop()
-	top.offset.y += 20
-	top.flip_v = true
+	top.stop()
+	legs.hide()
+	top.hide()
+	#top.offset.y += 20
+	#top.flip_v = true
 	
 	col.set_deferred("disabled", true)
 	col_shape.set_deferred("disabled", true)
 	en_hit_box.set_deferred("disabled", true)
 
-	#for i in range(randi_range(5, 10)):
-		#var b = b_spread.instantiate()
-		#get_tree().current_scene.add_child(b)
-		#b.global_position = global_position
-		#b.move_dir = (global_position - player.global_position).angle() + randf_range(-0.5, 0.5)
-		#b.z_index = -2
+	for i in range(randi_range(1, 1)):
+		var b = e_die.instantiate()
+		var dir_f_player = (global_position - player.global_position).normalized()
+		get_tree().current_scene.add_child(b)
+		b.global_position = global_position
+		b.move_dir = (global_position - player.global_position).angle()
+		b.rotation = dir_f_player.angle() + deg_to_rad(90)
+		b.z_index = -1
 	
-	for i in range(randi_range(25, 40)):
+	for i in range(randi_range(5, 10)):
 		var b = b_puddle.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position + Vector2(randf_range(-5, 5), randf_range(-5, 5))
@@ -167,14 +176,16 @@ func _on_en_hurt_box_died() -> void:
 		b.z_index = -2
 
 func _on_en_hurt_box_hurted(value: float) -> void:
-	for i in range(randi_range(5, 10)):
-		var b = b_spread.instantiate()
-		get_tree().current_scene.add_child(b)
-		b.global_position = global_position
-		b.move_dir = (global_position - player.global_position).angle() + randf_range(-0.5, 0.5)
-		b.z_index = -2
+	if is_dead:
+		return
+	#for i in range(randi_range(5, 10)):
+		#var b = b_spread.instantiate()
+		#get_tree().current_scene.add_child(b)
+		#b.global_position = global_position
+		#b.move_dir = (global_position - player.global_position).angle() + randf_range(-0.5, 0.5)
+		#b.z_index = -2
 		
-	for i in range(randi_range(7, 14)):
+	for i in range(randi_range(5, 10)):
 		var b = b_fly.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position
@@ -182,7 +193,7 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 		b.z_index = -2
 	
 		
-	for i in range(randi_range(10, 15)):
+	for i in range(randi_range(5, 10)):
 		var b = b_heal.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position

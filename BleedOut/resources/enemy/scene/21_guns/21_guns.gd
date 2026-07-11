@@ -26,6 +26,7 @@ var b_puddle = preload("res://resources/other/b_puddle.tscn")
 var b_spread = preload("res://resources/other/b_spread.tscn")
 var b_heal = preload("res://resources/other/b_heal.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
+var e_die = preload("res://resources/enemy/death/21guns_die.tscn")
 
 @export var speed: float = 180
 var min_dis: float = 100
@@ -155,17 +156,28 @@ func _on_top_animation_finished() -> void:
 			top.play("attack_range")
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
-	top.play(death_list.pick_random())
 	top.z_index = -1
 	legs.stop()
-	top.offset.y += 20
-	top.flip_v = true
+	top.stop()
+	legs.hide()
+	top.hide()
 	
 	col.set_deferred("disabled", true)
 	col_shape.set_deferred("disabled", true)
+
+	for i in range(randi_range(1, 1)):
+		var b = e_die.instantiate()
+		var dir_f_player = (global_position - player.global_position).normalized()
+		get_tree().current_scene.add_child(b)
+		b.global_position = global_position
+		b.move_dir = (global_position - player.global_position).angle()
+		b.rotation = dir_f_player.angle() + deg_to_rad(90)
+		b.z_index = -1
 
 	for i in range(randi_range(25, 40)):
 		var b = b_puddle.instantiate()
@@ -175,6 +187,8 @@ func _on_en_hurt_box_died() -> void:
 		b.z_index = -2
 	
 func _on_en_hurt_box_hurted(value: float) -> void:
+	if is_dead:
+		return
 	for i in range(randi_range(7, 14)):
 		var b = b_fly.instantiate()
 		get_tree().current_scene.add_child(b)
@@ -217,9 +231,12 @@ func attack_range():
 		return
 	if is_reloading:
 		return
+	can_attack = false
+	await get_tree().create_timer(0.25).timeout
+	if is_dead:
+		return
 	camera.applyShake()
 	top.play("attack_range")
-	can_attack = false
 	timer.start()
 	
 	var ball = projectile.instantiate()

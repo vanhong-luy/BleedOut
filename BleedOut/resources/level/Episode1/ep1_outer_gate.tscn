@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="4_v8run"]
 [ext_resource type="Texture2D" uid="uid://do70rtg12n64i" path="res://resources/level/assets/cemetary_tile.png" id="5_keqeg"]
 [ext_resource type="Texture2D" uid="uid://b2v2ixtfvtson" path="res://resources/level/assets/forest_path.png" id="6_1px3e"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="6_2mip5"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/m_1911.tres" id="6_2mip5"]
 [ext_resource type="Texture2D" uid="uid://1dxk74m2648s" path="res://resources/level/assets/forest_tileset.png" id="7_y1cv4"]
 [ext_resource type="Texture2D" uid="uid://bibjdvt5o7nbh" path="res://resources/level/assets/simple wall block.png" id="8_siigv"]
 [ext_resource type="Texture2D" uid="uid://dvw6tk2dfyp5x" path="res://resources/level/assets/trih.png" id="9_43jh5"]

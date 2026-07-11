@@ -14,6 +14,10 @@ const BULLET = preload("uid://cp15xcknlrfht")
 var active = false
 var can_shoot = true
 
+@onready var gunpoint: Marker2D = $Gunpoint
+@onready var flash: Sprite2D = $Flash
+
+
 func set_active_weapon(value: bool):
 	active = value
 
@@ -44,12 +48,12 @@ func shoot():
 	can_shoot = false
 	
 	#pistol_anim.play("attack")
-	
+	flashing()
 	for i in range(pallet):
 		var arc_rad = deg_to_rad(arc)
 		var bullet = BULLET.instantiate()
 		get_tree().root.add_child(bullet)
-		bullet.global_position = global_position
+		bullet.global_position = gunpoint.global_position
 		bullet.damage = w.damage
 		
 		var offset = randf_range(-arc_rad / 2, arc_rad / 2)
@@ -61,3 +65,8 @@ func shoot():
 	
 	if w.mag_cap == 0:
 		player.reload()
+		
+func flashing():
+	flash.visible = true
+	await get_tree().create_timer(0.1).timeout
+	flash.visible = false

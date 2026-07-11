@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://3gq1e23crdt5" path="res://resources/player/scenes/player.tscn" id="10_80suk"]
 [ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="11_t6bgu"]
 [ext_resource type="Resource" uid="uid://ca8lfcpgoaesf" path="res://resources/weapon/data/second/ak.tres" id="12_80suk"]
-[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/bm_4.tres" id="13_t6bgu"]
+[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/r_1100.tres" id="13_t6bgu"]
 [ext_resource type="PackedScene" uid="uid://dbiw52cfk3tbh" path="res://resources/enemy/scene/turret/turret.tscn" id="14_t6bgu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ufdek"]

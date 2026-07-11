@@ -24,6 +24,7 @@ var b_puddle = preload("res://resources/other/b_puddle.tscn")
 var b_spread = preload("res://resources/other/b_spread.tscn")
 var b_heal = preload("res://resources/other/b_heal.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
+var e_die = preload("res://resources/enemy/death/thrower_die.tscn")
 
 @export var speed: float = 150
 var min_dis: float = 100
@@ -46,7 +47,7 @@ var death_list:= []
 
 func _ready() -> void:
 	#As they thank the Lord, the blind can't see
-	death_list = ["die_1", "die_2"]
+	death_list = ["die_1", "die_2", "die_3", "die_4"]
 	en_hurt_box.en_healthpoint = data.healthpoint
 	can_attack = false
 	await get_tree().create_timer(1.0).timeout
@@ -105,14 +106,19 @@ func _on_top_animation_finished() -> void:
 		top.play("attack")
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
-	top.play(death_list.pick_random())
+	#top.play(death_list.pick_random())
 	top.z_index = -1
 	legs.stop()
-	top.offset.y += 20
-	top.flip_v = true
+	top.stop()
+	legs.hide()
+	top.hide()
+	#top.offset.y += 20
+	#top.flip_v = true
 	
 	col.set_deferred("disabled", true)
 	col_shape.set_deferred("disabled", true)
@@ -146,6 +152,14 @@ func _on_en_hurt_box_died() -> void:
 		#b.move_dir = (player.global_position - global_position).angle() + randf_range(-1.5, 1.5)
 		#b.lifesteal = value / 2.0
 		#b.z_index = -2
+	for i in range(randi_range(1, 1)):
+		var b = e_die.instantiate()
+		var dir_f_player = (global_position - player.global_position).normalized()
+		get_tree().current_scene.add_child(b)
+		b.global_position = global_position
+		b.move_dir = (global_position - player.global_position).angle()
+		b.rotation = dir_f_player.angle() + deg_to_rad(90)
+		b.z_index = -1
 
 func attack():
 	if is_dead:
@@ -154,11 +168,12 @@ func attack():
 	if not can_attack:
 		return
 	can_attack = false
+	top.play("attack")
 	await get_tree().create_timer(0.5).timeout
 	if is_dead:
 		return
 	timer.start()
-	top.play("attack")
+	
 	
 	var ball = projectile.instantiate()
 	get_tree().root.add_child(ball)

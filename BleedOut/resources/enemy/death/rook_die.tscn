@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://copkb1438t18s"]
+
+[ext_resource type="Script" uid="uid://5b75k4aj7uci" path="res://resources/enemy/death/e_die.gd" id="1_md1dl"]
+[ext_resource type="Texture2D" uid="uid://dbdjnhit426uf" path="res://resources/enemy/sprites/rook/die.png" id="2_md1dl"]
+
+[node name="RookDie" type="Node2D" unique_id=74266429]
+script = ExtResource("1_md1dl")
+
+[node name="DeadSprite" type="Sprite2D" parent="." unique_id=943157660]
+texture = ExtResource("2_md1dl")
+hframes = 2
+vframes = 2

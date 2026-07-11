@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c3to51clh2oc6"]
+
+[ext_resource type="Script" uid="uid://5b75k4aj7uci" path="res://resources/enemy/death/e_die.gd" id="1_ttccd"]
+[ext_resource type="Texture2D" uid="uid://de1x2fv5hrl5" path="res://resources/enemy/sprites/summoner/die.png" id="2_ttccd"]
+
+[node name="SummonerDie" type="Node2D" unique_id=74266429]
+script = ExtResource("1_ttccd")
+
+[node name="DeadSprite" type="Sprite2D" parent="." unique_id=943157660]
+texture = ExtResource("2_ttccd")
+hframes = 2

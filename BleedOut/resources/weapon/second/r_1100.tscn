@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cvmtenll8iu38"]
+
+[ext_resource type="Script" uid="uid://davxgxus7xjjr" path="res://resources/weapon/second/r_1100.gd" id="1_4cfl5"]
+[ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="1_ahdhu"]
+[ext_resource type="Texture2D" uid="uid://baev5wk8nudoy" path="res://resources/weapon/sprite/muzzle flash.png" id="3_2uhan"]
+
+[node name="R1100" type="Node2D" unique_id=1105835885]
+rotation = -1.5707964
+script = ExtResource("1_4cfl5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644982862]
+position = Vector2(1, -10)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ahdhu")
+
+[node name="Gunpoint" type="Marker2D" parent="." unique_id=485830001]
+position = Vector2(1.0000011, -25)
+
+[node name="Flash" type="Sprite2D" parent="." unique_id=1747066195]
+visible = false
+position = Vector2(1.0000012, -26)
+texture = ExtResource("3_2uhan")

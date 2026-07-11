@@ -8,6 +8,7 @@ var move_spd: float = randf_range(15, 20)
 var friction: float = randf_range(2, 4)
 var lifesteal: float = 0.0 #idk why, but if it's int, it won't work
 var lifespan: float = 1.0 #timeout, don't ask me
+var is_collected: bool = false
 
 @onready var player = get_tree().get_first_node_in_group("player")
 
@@ -31,6 +32,9 @@ func _process(delta):
 
 
 func _on_area_entered(area):
+	if is_collected:
+		return
 	if area is HurtBox:
+		#print("Healing: ", lifesteal)
 		player.heal(lifesteal)
 		queue_free()

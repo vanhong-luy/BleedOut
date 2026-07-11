@@ -28,6 +28,7 @@ var b_puddle = preload("res://resources/other/b_puddle.tscn")
 var b_spread = preload("res://resources/other/b_spread.tscn")
 var b_heal = preload("res://resources/other/b_heal.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
+var e_die = preload("res://resources/enemy/death/charger_die.tscn")
 
 @export var speed: float = 175
 @onready var is_dead = false
@@ -177,22 +178,24 @@ func _on_en_hurt_box_died() -> void:
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
-	top.play(death_list.pick_random())
 	top.z_index = -1
 	legs.stop()
-	top.offset.y += 20
-	top.flip_v = true
+	top.stop()
+	legs.hide()
+	top.hide()
 	
 	col.set_deferred("disabled", true)
 	col_shape.set_deferred("disabled", true)
 	en_hit_box.set_deferred("disabled", true)
 
-	for i in range(randi_range(25, 40)):
-		var b = b_puddle.instantiate()
+	for i in range(randi_range(1, 1)):
+		var b = e_die.instantiate()
+		var dir_f_player = (global_position - player.global_position).normalized()
 		get_tree().current_scene.add_child(b)
-		b.global_position = global_position + Vector2(randf_range(-5, 5), randf_range(-5, 5))
-		b.move_dir = (global_position - player.global_position).angle() + randf_range(-0.5, 0.5)
-		b.z_index = -2
+		b.global_position = global_position
+		b.move_dir = (global_position - player.global_position).angle()
+		b.rotation = dir_f_player.angle() + deg_to_rad(90)
+		b.z_index = -1
 
 	for i in range(randi_range(10, 15)):
 		var b = b_spread.instantiate()

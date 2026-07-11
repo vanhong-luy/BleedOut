@@ -8,12 +8,16 @@ extends Camera2D
 var velocity := Vector2.ZERO
 
 var randomStrenght: float = 5.0
+var lightRandomStrenght: float = 2.5
 var shakeFade: float = 5.0
 var rng = RandomNumberGenerator.new()
 var shakeStrength: float = 0.0
 
 func applyShake():
 	shakeStrength = randomStrenght
+
+func applyShakeLight():
+	shakeStrength = lightRandomStrenght
 	
 func randomOffset() -> Vector2:
 	return Vector2(rng.randf_range(-shakeStrength, shakeStrength), rng.randf_range(-shakeStrength, shakeStrength))

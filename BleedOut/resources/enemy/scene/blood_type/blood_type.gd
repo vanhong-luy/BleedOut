@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var top: AnimatedSprite2D = $top
 @onready var legs: AnimatedSprite2D = $legs
 
-@onready var en_hit_box: en_HitBox = $EnHitBox
+@onready var en_hit_box: h_en_HitBox = $EnHitBox
 @onready var en_hurt_box: en_HurtBox = $EnHurtBox
 
 #Navigation
@@ -39,6 +39,10 @@ var stomp_launch_force = 500
 var stomp_cooldown: float = 2.5 #just a display
 @onready var stomp_timer: Timer = $StompTimer
 
+#2nd phase, I think
+var max_health = 0
+signal enraged
+var is_enraged = false
 
 @onready var col:= $EnHurtBox/CollisionShape2D
 @onready var col_shape: CollisionShape2D = $CollisionShape2D
@@ -47,6 +51,11 @@ var stomp_cooldown: float = 2.5 #just a display
 @export var data: Enemy
 
 @onready var player = get_tree().get_first_node_in_group("player")
+@onready var camera: Camera2D = get_viewport().get_camera_2d()
+
+#healthbar
+@onready var boss_health_bar: ProgressBar = $Panel/BossHealthBar
+var health = 0
 
 var b_puddle = preload("res://resources/other/b_puddle.tscn")
 var b_spread = preload("res://resources/other/b_spread.tscn")
@@ -72,9 +81,14 @@ func _ready() -> void:
 	en_hit_box.damage = data.damage
 	en_hurt_box.en_healthpoint = data.healthpoint
 	
+	health = en_hurt_box.en_healthpoint
+	
+	max_health = en_hurt_box.en_healthpoint
+	
+	#print(health)
+	#get_tree().get_first_node_in_group("boss_health_bar").health = en_hurt_box.en_healthpoint
+	boss_health_bar.init_health(health)
 	#My blood type mark is on the sleeve
-
-	death_list = ["die_1", "die_2", "die_3", "die_4"]
 
 	prep_time.start()
 func _physics_process(_delta):
@@ -101,11 +115,16 @@ func _physics_process(_delta):
 		var distance = global_position.distance_to(player.global_position)
 		top.rotation = direction.angle() + deg_to_rad(90)
 		
-		if can_charge and is_ready and not is_in_stomp_zone and not is_charging and distance > 25 and distance < 200:
+		if can_charge and is_ready and not is_in_stomp_zone and not is_charging and distance > 25 and distance < 250:
 			charging()
 			return
 		if can_shockwave and is_ready and not is_in_stomp_zone and not is_charging and not is_attack:
 			shockwave_attack()
+			return
+			
+		if en_hurt_box.en_healthpoint <= max_health / 2 and not is_enraged:
+			enraged.emit()
+			is_enraged = true
 			return
 		
 		if is_charging:
@@ -160,6 +179,7 @@ func _on_en_melee_range_body_entered(body: Node2D) -> void:
 func _on_en_melee_range_body_exited(body: Node2D) -> void:
 	if body != player:
 		return
+	await get_tree().create_timer(0.5).timeout
 	is_outside_melee_range = true
 	is_attack = false
 	en_melee_range.set_deferred("monitoring", true)
@@ -180,7 +200,7 @@ func _on_top_frame_changed() -> void:
 	if not top:
 		return
 	if top.animation == "attack":
-		en_hit_box.set_active(top.frame == 2)
+		en_hit_box.set_active(top.frame == 4)
 	else:
 		en_hit_box.set_active(false)
 
@@ -192,14 +212,13 @@ func _on_en_hurt_box_died() -> void:
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
-	top.play(death_list.pick_random())
-	top.z_index = -1
+	#top.z_index = 4
+	top.play("die")
 	legs.stop()
-	top.offset.y += 20
-	top.flip_v = true
+	top.self_modulate = Color(1, 1, 1, 1)
 	
 	col.set_deferred("disabled", true)
-	col_shape.set_deferred("disabled", true)
+	#col_shape.set_deferred("disabled", true)
 	en_hit_box.set_deferred("disabled", true)
 
 	#for i in range(randi_range(5, 10)):
@@ -217,10 +236,13 @@ func _on_en_hurt_box_died() -> void:
 		b.z_index = -2
 
 func _on_en_hurt_box_hurted(value: float) -> void:
-		
 	if is_dead:
 		return
-		
+	
+	health = en_hurt_box.en_healthpoint
+	boss_health_bar.health = health
+	#print(health)
+	#get_tree().get_first_node_in_group("boss_health_bar").health = en_hurt_box.en_healthpoint
 	for i in range(randi_range(7, 14)):
 		var b = b_fly.instantiate()
 		get_tree().current_scene.add_child(b)
@@ -229,7 +251,7 @@ func _on_en_hurt_box_hurted(value: float) -> void:
 		b.z_index = -2
 	
 		
-	for i in range(randi_range(10, 15)):
+	for i in range(randi_range(5, 10)):
 		var b = b_heal.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position
@@ -251,8 +273,12 @@ func charging() -> void:
 	velocity = Vector2.ZERO
 
 	#giddy up: keep rotating toward player for 0.5s
-	var wind_up_time = 0.5
+	var wind_up_time = 0.0
 	var elapsed = 0.0
+	if is_enraged:
+		wind_up_time = 0.25
+	else:
+		wind_up_time = 0.5
 	while elapsed < wind_up_time:
 		await get_tree().process_frame
 		elapsed += get_process_delta_time()
@@ -283,7 +309,7 @@ func _on_charge_push_body_entered(body: Node2D) -> void:
 	if body == player:
 		player.apply_knockback(charge_direction * charge_launch_force)
 		player.hurt_box.get_damage(data.damage, global_position)
-		
+		camera.applyShake()
 
 func _on_stomping_body_entered(body: Node2D) -> void:
 	if body != player:
@@ -352,3 +378,9 @@ func _on_sw_timer_timeout() -> void:
 
 func _on_prep_time_timeout() -> void:
 	is_ready = true
+
+func _on_enraged() -> void:
+	top.self_modulate = Color(1, 0, 0, 1)
+	speed = 150
+	stomp_timer.wait_time = 1.5
+	sw_timer.wait_time = 3.0

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://pm30b0066q1o" path="res://resources/level/other/map.gd" id="1_qqpvg"]
 [ext_resource type="Texture2D" uid="uid://bibjdvt5o7nbh" path="res://resources/level/assets/simple wall block.png" id="2_4e5p6"]
 [ext_resource type="PackedScene" uid="uid://dbpv482k3ofio" path="res://resources/enemy/scene/thrall/thrall.tscn" id="6_qt8gb"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="6_qvtxr"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/m_1911.tres" id="6_qvtxr"]
 [ext_resource type="PackedScene" uid="uid://bpvxnebl556qj" path="res://resources/level/other/room.tscn" id="6_vnw6f"]
 [ext_resource type="Script" uid="uid://brc0v0hbm6ijn" path="res://resources/level/other/door.gd" id="7_i30mo"]
 [ext_resource type="Texture2D" uid="uid://gp0g2klrfxtv" path="res://resources/level/assets/barrack_tile.png" id="8_qvtxr"]

@@ -1,15 +1,18 @@
-#Currently unused
-
 extends ProgressBar
 
-@onready var timer = $Timer
-@onready var damage_bar = $damageBar
+@onready var player = get_tree().get_first_node_in_group("player")
+@onready var timer: Timer = $Timer
+@onready var damage_bar: ProgressBar = $DamageBar
 
 var health = 0 : set = _set_health
 
+
+func _ready() -> void:
+	add_to_group("health_bar")
+
 func _set_health(new_health):
 	var prev_helth = health
-	health - min(max_value, new_health)
+	health = min(max_value, new_health)
 	value = health
 	if health <= 0:
 		queue_free()
@@ -19,8 +22,8 @@ func _set_health(new_health):
 	else:
 		damage_bar.value = health
 
-func init_health(_health):
-	health = _health
+func init_health(health):
+	health = player.health
 	max_value = health
 	value = health
 	damage_bar.max_value = health

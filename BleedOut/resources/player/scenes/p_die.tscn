@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://8vrk4l21jkx0"]
+
+[ext_resource type="Script" uid="uid://bf0sg3jil6keg" path="res://resources/player/scenes/p_die.gd" id="1_8dkvb"]
+[ext_resource type="Texture2D" uid="uid://bh68ocisd86d0" path="res://resources/player/die.png" id="2_8dkvb"]
+
+[node name="PDie" type="Node2D" unique_id=74266429]
+script = ExtResource("1_8dkvb")
+
+[node name="BloodSprite" type="Sprite2D" parent="." unique_id=98174222]
+texture = ExtResource("2_8dkvb")

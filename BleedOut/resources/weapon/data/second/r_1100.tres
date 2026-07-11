@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://bjtuwy6u43sal"]
+
+[ext_resource type="PackedScene" uid="uid://cvmtenll8iu38" path="res://resources/weapon/second/r_1100.tscn" id="1_hsvfw"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_stb1a"]
+
+[resource]
+script = ExtResource("2_stb1a")
+name = "R1100"
+damage = 1.0
+scene = ExtResource("1_hsvfw")
+type = 2
+mag_cap = 6
+max_mag = 6
+spare_ammo = 24
+max_spare = 24
+fire_rate = 0.4

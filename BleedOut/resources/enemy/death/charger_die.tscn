@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cj7txrcbqruri"]
+
+[ext_resource type="Script" uid="uid://5b75k4aj7uci" path="res://resources/enemy/death/e_die.gd" id="1_nqlju"]
+[ext_resource type="Texture2D" uid="uid://bqj0j0f3ygiq3" path="res://resources/enemy/sprites/charger/die.png" id="2_nqlju"]
+
+[node name="ChargerDie" type="Node2D" unique_id=74266429]
+script = ExtResource("1_nqlju")
+
+[node name="DeadSprite" type="Sprite2D" parent="." unique_id=943157660]
+texture = ExtResource("2_nqlju")
+hframes = 2

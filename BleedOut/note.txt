@@ -23,6 +23,7 @@ problem: charger charging deal no damage, add some damage
 solved
 
 problem: need atk sprite for apprentice
+solved
 
 problem: add summoner minions for preventing score racking
 solved
@@ -44,6 +45,7 @@ solved: idk why you want it
 
 problem: add this to all enemies' on_en_hurt_box_died()
 GameState.score += score
+solved:
 
 problem: add timer to each map, track how fast player can finish
 
@@ -57,3 +59,7 @@ problem: try to solve the pickup item
 solved
 
 problem: add green laser to sniper
+solved
+
+problem: make a better dead animation, following b_* structure.
+	you know what I mean

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c68hwtfoismkn" path="res://resources/enemy/scene/thrower/bone_projectile.tscn" id="3_tqoxs"]
 [ext_resource type="Texture2D" uid="uid://y23k2oevaa0s" path="res://resources/enemy/sprites/thrower/moving - leg.png" id="4_8kg6t"]
 [ext_resource type="Texture2D" uid="uid://3prx1swo13po" path="res://resources/enemy/sprites/thrower/attack.png" id="5_8kg6t"]
-[ext_resource type="Texture2D" uid="uid://b3yp750nh14hs" path="res://resources/enemy/sprites/thrower/die.png" id="6_8kg6t"]
+[ext_resource type="Texture2D" uid="uid://dxoafgtd7sat0" path="res://resources/enemy/sprites/thrower/die_1.png" id="6_8kg6t"]
 [ext_resource type="Texture2D" uid="uid://b2kk57ho6scuf" path="res://resources/enemy/sprites/thrower/die_2.png" id="7_khvmb"]
 [ext_resource type="Texture2D" uid="uid://bfrtbwvgx7gu8" path="res://resources/enemy/sprites/thrower/die_3.png" id="8_qq1ie"]
 [ext_resource type="Texture2D" uid="uid://cq45rikribsb1" path="res://resources/enemy/sprites/thrower/die_4.png" id="9_luids"]
@@ -117,6 +117,10 @@ region = Rect2(0, 64, 64, 64)
 atlas = ExtResource("5_8kg6t")
 region = Rect2(64, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8175"]
+atlas = ExtResource("6_8kg6t")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_posi1"]
 atlas = ExtResource("5_8kg6t")
 region = Rect2(0, 0, 64, 64)
@@ -146,7 +150,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_8kg6t")
+"texture": SubResource("AtlasTexture_m8175")
 }],
 "loop": true,
 "name": &"die_1",
@@ -210,7 +214,7 @@ animation = &"move"
 
 [node name="top" type="AnimatedSprite2D" parent="." unique_id=1526960937]
 sprite_frames = SubResource("SpriteFrames_wuccs")
-animation = &"attack"
+animation = &"idle"
 
 [node name="RayCast" type="RayCast2D" parent="top" unique_id=691369356]
 rotation = 3.1415927
@@ -234,5 +238,4 @@ wait_time = 2.0
 
 [connection signal="animation_finished" from="top" to="." method="_on_top_animation_finished"]
 [connection signal="died" from="EnHurtBox" to="." method="_on_en_hurt_box_died"]
-[connection signal="hurted" from="EnHurtBox" to="." method="_on_en_hurt_box_hurted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

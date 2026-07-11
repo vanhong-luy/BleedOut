@@ -121,6 +121,8 @@ func _on_top_frame_changed() -> void:
 		en_hit_box.set_active(false)
 
 func _on_en_hurt_box_died() -> void:
+	if is_dead:
+		return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -134,7 +136,7 @@ func _on_en_hurt_box_died() -> void:
 	col_shape.set_deferred("disabled", true)
 	en_hit_box.set_deferred("disabled", true)
 
-	for i in range(randi_range(25, 40)):
+	for i in range(randi_range(5, 10)):
 		var b = b_puddle.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position + Vector2(randf_range(-5, 5), randf_range(-5, 5))
@@ -142,21 +144,21 @@ func _on_en_hurt_box_died() -> void:
 		b.z_index = -2
 
 func _on_en_hurt_box_hurted(value: float) -> void:
-	for i in range(randi_range(5, 10)):
-		var b = b_spread.instantiate()
-		get_tree().current_scene.add_child(b)
-		b.global_position = global_position
-		b.move_dir = (global_position - player.global_position).angle() + randf_range(-0.5, 0.5)
-		b.z_index = -2
+	#for i in range(randi_range(5, 10)):
+		#var b = b_spread.instantiate()
+		#get_tree().current_scene.add_child(b)
+		#b.global_position = global_position
+		#b.move_dir = (global_position - player.global_position).angle() + randf_range(-0.5, 0.5)
+		#b.z_index = -2
 		
-	for i in range(randi_range(7, 14)):
+	for i in range(randi_range(5, 10)):
 		var b = b_fly.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position
 		b.move_dir = (global_position - player.global_position).angle() + randf_range(-2.5, 2.5)
 		b.z_index = -2
 		
-	for i in range(randi_range(10, 15)):
+	for i in range(randi_range(5, 10)):
 		var b = b_heal.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position

@@ -1,4 +1,3 @@
-#I fucked up here too, you can compare this with my older version i made
 extends Node
 var player_node: Node = null
 var player_scene: PackedScene = preload("res://resources/player/scenes/player.tscn")
@@ -13,7 +12,8 @@ func save_player(player):
 		"health": player.health,
 		"current_weapon": player.current_weapon,
 		"weapon_list": player.weapon_list,
-		"ammo": []
+		"ammo": [],
+		"score": player.total_score
 	}
 	for w in player.weapons:
 		saved_data.ammo.append({
@@ -36,8 +36,8 @@ func load_player(scene_root):
 	else:
 		var player = player_scene.instantiate()
 		if !saved_data.is_empty():
-			player.weapon_list = saved_data.weapon_list  # set BEFORE add_child
-		scene_root.add_child(player)  # _ready() runs here, builds weapons correctly
+			player.weapon_list = saved_data.weapon_list
+		scene_root.add_child(player)
 		await scene_root.get_tree().process_frame
 		if spawn:
 			player.global_position = spawn.global_position
@@ -52,6 +52,7 @@ func load_player(scene_root):
 				if i < saved_data.ammo.size():
 					player.weapons[i].mag_cap = saved_data.ammo[i].mag_cap
 					player.weapons[i].spare_ammo = saved_data.ammo[i].spare_ammo
+			player.total_score = saved_data.score
 
 func _apply_camera(player, spawn):
 	var camera = player.get_node_or_null("Camera2D")

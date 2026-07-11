@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://df5ernx7so3hp" path="res://resources/enemy/scene/minions/summoner (miniboss)/thrower/bone_projectile.tscn" id="3_lfcwk"]
 [ext_resource type="Texture2D" uid="uid://y23k2oevaa0s" path="res://resources/enemy/sprites/thrower/moving - leg.png" id="4_xvfme"]
 [ext_resource type="Texture2D" uid="uid://3prx1swo13po" path="res://resources/enemy/sprites/thrower/attack.png" id="5_s1edh"]
-[ext_resource type="Texture2D" uid="uid://b3yp750nh14hs" path="res://resources/enemy/sprites/thrower/die.png" id="6_xvfme"]
+[ext_resource type="Texture2D" uid="uid://dxoafgtd7sat0" path="res://resources/enemy/sprites/thrower/die_1.png" id="6_xvfme"]
 [ext_resource type="Texture2D" uid="uid://b2kk57ho6scuf" path="res://resources/enemy/sprites/thrower/die_2.png" id="7_s1edh"]
 [ext_resource type="Texture2D" uid="uid://bfrtbwvgx7gu8" path="res://resources/enemy/sprites/thrower/die_3.png" id="8_lo6ah"]
 [ext_resource type="Texture2D" uid="uid://cq45rikribsb1" path="res://resources/enemy/sprites/thrower/die_4.png" id="9_adr0c"]
@@ -214,7 +214,7 @@ animation = &"move"
 
 [node name="top" type="AnimatedSprite2D" parent="." unique_id=1526960937]
 sprite_frames = SubResource("SpriteFrames_wuccs")
-animation = &"attack"
+animation = &"die_4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=753542732]
 position = Vector2(-1, 1)

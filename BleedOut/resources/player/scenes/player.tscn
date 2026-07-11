@@ -8,9 +8,9 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="3_bccv6"]
 [ext_resource type="Texture2D" uid="uid://ccknef18a7fgt" path="res://resources/player/range - pistol.png" id="4_ll4mm"]
 [ext_resource type="Texture2D" uid="uid://cg8xugji8qtf0" path="res://resources/player/melee.png" id="4_pk0xo"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="4_r5ieu"]
-[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/bm_4.tres" id="5_bccv6"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/m_1911.tres" id="4_r5ieu"]
 [ext_resource type="Texture2D" uid="uid://dpfxivoblffpi" path="res://resources/player/range - secondary.png" id="5_q5dse"]
+[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/r_1100.tres" id="5_q8bgf"]
 [ext_resource type="PackedScene" uid="uid://ybwiagi0yk5c" path="res://resources/player/scenes/hurt_box.tscn" id="9_7nlgy"]
 [ext_resource type="Texture2D" uid="uid://d3trcv3inn00c" path="res://resources/player/sharp_atk_alt.png" id="9_n5h3t"]
 [ext_resource type="Texture2D" uid="uid://b7jgx6625rnhw" path="res://resources/weapon/sprite/melee/swing.png" id="11_8j8kq"]
@@ -19,11 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://cl6ovv80djy2j" path="res://resources/player/pistol_reload.png" id="13_kj3yf"]
 [ext_resource type="Texture2D" uid="uid://co6g06y3415qr" path="res://resources/weapon/sprite/melee/katana_swing_fx.png" id="13_xh10n"]
 [ext_resource type="Texture2D" uid="uid://c66iphrqa7llr" path="res://resources/weapon/sprite/pistol/muzzle flash.png" id="15_nl1t5"]
-[ext_resource type="Script" uid="uid://cjn6xra7pwxas" path="res://resources/player/scenes/hp_display.gd" id="20_r0ltb"]
 [ext_resource type="Script" uid="uid://cll7cg1hqx8am" path="res://resources/player/scenes/camera.gd" id="20_xh10n"]
 [ext_resource type="Script" uid="uid://hl1ko5w4ba72" path="res://resources/player/scenes/dash_display.gd" id="21_h3mr2"]
 [ext_resource type="Script" uid="uid://d1ex2l46t2y0s" path="res://resources/player/scenes/swing_display.gd" id="22_8ujj2"]
 [ext_resource type="Script" uid="uid://i62l1d7y18it" path="res://resources/player/scenes/ammo_display.gd" id="23_mgxj2"]
+[ext_resource type="Script" uid="uid://durakce8hquvh" path="res://resources/player/scenes/score.gd" id="24_q8bgf"]
+[ext_resource type="Script" uid="uid://ja4dnclyca2t" path="res://resources/player/scenes/health.gd" id="25_2xqil"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5ieu"]
 atlas = ExtResource("1_n61ci")
@@ -1094,10 +1095,24 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is6jk"]
 size = Vector2(24, 16)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8bgf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xqil"]
+bg_color = Color(0.71, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8bgf"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11iob"]
+
 [node name="Player" type="CharacterBody2D" unique_id=2076669830 groups=["player"]]
 z_index = 1
 script = ExtResource("2_vvpx2")
-weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_r5ieu"), ExtResource("5_bccv6")])
+weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_r5ieu"), ExtResource("5_q8bgf")])
 
 [node name="legs" type="AnimatedSprite2D" parent="." unique_id=1411536289]
 z_index = -2
@@ -1107,7 +1122,7 @@ animation = &"move"
 [node name="top" type="AnimatedSprite2D" parent="." unique_id=1729170607]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_pvm7t")
-animation = &"second"
+animation = &"idle_melee"
 
 [node name="BluntHand" type="Node2D" parent="top" unique_id=1382368418]
 position = Vector2(5, -3)
@@ -1193,16 +1208,6 @@ disabled = true
 
 [node name="Panel" type="CanvasLayer" parent="." unique_id=282977641]
 
-[node name="Hp" type="Label" parent="Panel" unique_id=1777031886]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 40.0
-grow_vertical = 0
-size_flags_horizontal = 0
-script = ExtResource("20_r0ltb")
-
 [node name="Dash" type="Label" parent="Panel" unique_id=164484080]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -1232,10 +1237,55 @@ grow_vertical = 0
 size_flags_vertical = 8
 script = ExtResource("23_mgxj2")
 
+[node name="Score" type="Label" parent="Panel" unique_id=1208845241]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -1062.0
+offset_right = -26.0
+offset_bottom = -1039.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("24_q8bgf")
+
+[node name="HealthBar" type="ProgressBar" parent="Panel" unique_id=543543513]
+z_index = 1
+offset_left = 1.0
+offset_top = 736.0
+offset_right = 27.0
+offset_bottom = 1078.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_q8bgf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2xqil")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("25_2xqil")
+
+[node name="DamageBar" type="ProgressBar" parent="Panel/HealthBar" unique_id=782913379]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_q8bgf")
+theme_override_styles/fill = SubResource("StyleBoxFlat_11iob")
+value = 80.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Panel/HealthBar" unique_id=1527874353]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125960287]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(4.5, 4.5)
 editor_draw_limits = true
 script = ExtResource("20_xh10n")
 
 [connection signal="died" from="HurtBox" to="." method="_on_hurt_box_died"]
 [connection signal="hurted" from="HurtBox" to="." method="_on_hurt_box_hurted"]
+[connection signal="timeout" from="Panel/HealthBar/Timer" to="Panel/HealthBar" method="_on_timer_timeout"]

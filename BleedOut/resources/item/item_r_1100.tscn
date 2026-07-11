@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dmakcfcral1kt"]
+
+[ext_resource type="Script" uid="uid://cyxjv8cu78lrj" path="res://resources/item/item.gd" id="1_n0gi2"]
+[ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="2_n0gi2"]
+[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/r_1100.tres" id="3_3pnvu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3e3dw"]
+radius = 10.262738
+
+[node name="R1100" type="Area2D" unique_id=1020124308]
+script = ExtResource("1_n0gi2")
+item_id = "R1100"
+item_sprite = ExtResource("2_n0gi2")
+item = ExtResource("3_3pnvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124372377]
+shape = SubResource("CircleShape2D_3e3dw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1844837949]
+texture = ExtResource("2_n0gi2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

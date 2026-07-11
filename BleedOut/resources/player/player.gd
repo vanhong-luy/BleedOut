@@ -67,6 +67,12 @@ var is_dead = false
 var trans_cooldown: float = 0.5
 var trans_timer: float = 0.0
 
+@onready var health_bar: ProgressBar = $Panel/HealthBar
+
+
+#score
+var total_score = 0
+
 @export var weapon_list: Array[WeaponData] = []  # drag .tres files here. No not here, in Inspector
 var weapons = []
 var current_weapon = 0
@@ -74,11 +80,12 @@ var current_weapon = 0
 var b_puddle = preload("res://resources/other/b_puddle.tscn")
 var b_spread = preload("res://resources/other/b_spread.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
-
+var p_die = preload("res://resources/player/scenes/p_die.tscn")
 
 const ENEMY_LAYER = 0
 
 func _ready() -> void:
+	health_bar.init_health(health)
 	if GameState.saved_data != null:
 		if !GameState.saved_data.is_empty():
 			weapon_list = GameState.saved_data.weapon_list
@@ -203,18 +210,21 @@ func _physics_process(_delta):
 	if is_reloading:
 		pistol_anim.play("pistol_reload")
 		
-	if Input.is_action_pressed("trans") and health > 20:
-		#trans = transfer btw
-		trans_timer -= _delta
-		var weapon = weapons[current_weapon]
-		if weapon.type == WeaponData.Type.pistol and weapon.spare_ammo < weapon.max_spare and trans_timer <= 0:
-			health -= 5
-			weapons[current_weapon].spare_ammo += 1
-			trans_timer = trans_cooldown
-		elif weapon.type == WeaponData.Type.second and weapon.spare_ammo < weapon.max_spare and trans_timer <= 0:
-			health -= 10
-			weapons[current_weapon].spare_ammo += 1
-			trans_timer = trans_cooldown
+	#if Input.is_action_pressed("trans") and health > 20:
+		##trans = transfer btw
+		#trans_timer -= _delta
+		#var weapon = weapons[current_weapon]
+		#if weapon.type == WeaponData.Type.pistol and weapon.spare_ammo < weapon.max_spare and trans_timer <= 0:
+			#health -= 5
+			#weapons[current_weapon].spare_ammo += 1
+			#trans_timer = trans_cooldown
+		#elif weapon.type == WeaponData.Type.second and weapon.spare_ammo < weapon.max_spare and trans_timer <= 0:
+			#health -= 10
+			#weapons[current_weapon].spare_ammo += 1
+			#trans_timer = trans_cooldown
+	
+	if Input.is_action_just_pressed("trans"):
+		print("Total Score: ", total_score)
 	
 	if Input.is_action_just_pressed("attack") and can_melee and swing_amount > 0:
 		
@@ -312,6 +322,7 @@ func heal(lifesteal: float):
 		return
 	health = min(roundf(health + lifesteal), max_health)
 	hurt_box.healthpoint = health
+	health_bar.health = health
 
 #moved to gun instead
 #func pistolShoot():
@@ -402,6 +413,7 @@ func recharge_dash():
 func _on_hurt_box_hurted(hit_from: Vector2) -> void:
 	
 	health = hurt_box.healthpoint
+	health_bar.health = health
 	
 	if invincible:
 		return
@@ -414,7 +426,7 @@ func _on_hurt_box_hurted(hit_from: Vector2) -> void:
 		b.global_position = global_position
 		b.move_dir = (global_position - hit_from).angle() + randf_range(-2.5, 2.5)
 		b.z_index = -2
-
+		
 	await get_tree().create_timer(0.5).timeout #[TITLE CARD] frame
 	invincible = false
 	
@@ -424,10 +436,10 @@ func _on_hurt_box_died(hit_from: Vector2) -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
 	
-	top.play("die")
-	legs.stop()
-	top.offset.y += 20
-	top.flip_v = true
+	top.hide()
+	legs.hide()
+	#top.offset.y += 20
+	#top.flip_v = true
 	
 	blunt_hand.hide()
 	sharp_hand.hide()
@@ -438,25 +450,28 @@ func _on_hurt_box_died(hit_from: Vector2) -> void:
 	col_shape.set_deferred("disabled", true)
 	hurt_box.set_deferred("disabled", true)
 	
-	for i in range(randi_range(5, 10)):
-		var b = b_spread.instantiate()
+	for i in range(randi_range(1, 1)):
+		var b = p_die.instantiate()
+		var dir_f_player = (global_position - hit_from).normalized()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position
-		b.move_dir = (global_position - hit_from).angle() + randf_range(-0.5, 0.5)
-		b.z_index = -2
+		b.move_dir = (global_position - hit_from).angle()
+		b.rotation = dir_f_player.angle() + deg_to_rad(90)
+		b.z_index = -1
 		
 	for i in range(randi_range(25, 40)):
 		var b = b_puddle.instantiate()
 		get_tree().current_scene.add_child(b)
 		b.global_position = global_position + Vector2(randf_range(-5, 5), randf_range(-5, 5))
 		b.move_dir = (global_position - hit_from).angle() + randf_range(-0.5, 0.5)
-		b.z_index = -1
+		b.z_index = -2
 
 	await get_tree().create_timer(1.5).timeout
 	GameState.player_node = null
 	get_tree().reload_current_scene()
 	
 func switch_weapon_next():
+	#print("im being called, switch next")
 	if !can_melee:
 		return
 	if is_dead:
@@ -476,6 +491,7 @@ func switch_weapon_next():
 	_update_holding_state()
 
 func switch_weapon_prev():
+	#print("im being called, switch prev")
 	if !can_melee:
 		return
 		

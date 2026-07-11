@@ -7,3 +7,4 @@ script = ExtResource("1_ciux3")
 name = "zombie"
 healthpoint = 0.5
 damage = 25
+score = 20
