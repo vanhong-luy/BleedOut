@@ -194,6 +194,7 @@ func attack():
 		return
 	top.play("attack")
 	can_attack = false
+	await get_tree().create_timer(0.5).timeout
 	timer.start()
 	
 	var ball = projectile.instantiate()

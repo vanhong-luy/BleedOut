@@ -70,6 +70,86 @@ func weapon_setup(item: WeaponData) -> Dictionary:
 		"fire_rate": item.fire_rate
 	}
 	
+#======== PISTOL SECTION ========
+func _on_b_92_pressed() -> void:
+	item = load("res://resources/weapon/data/pistol/b_92.tres")
+	var new_player = get_tree().get_first_node_in_group("player")
+	
+	for weapon in new_player.weapons:
+		if weapon["name"] == item.name:
+			if new_player.total_money < item.refill_price:
+				print("broke ahh, cant even buy ammo")
+				return
+			if weapon["spare_ammo"] >= weapon["max_spare"]:
+				return
+			new_player.total_money -= item.refill_price
+			boolet = item.mag_cap
+			weapon["spare_ammo"] = min(weapon["spare_ammo"] + boolet, item.max_spare)
+			return
+	
+	if new_player.total_money < item.price:
+		print("sorry, you're broke")
+		return
+	new_player.total_money -= item.price
+	var weapon_data = weapon_setup(item)
+	new_player.weapons.append(weapon_data)
+	new_player.weapon_list.append(item)
+	
+	new_player.switch_weapon_prev()
+	
+func _on_d_cobra_pressed() -> void:
+	item = load("res://resources/weapon/data/pistol/d_cobra.tres")
+	var new_player = get_tree().get_first_node_in_group("player")
+	
+	for weapon in new_player.weapons:
+		if weapon["name"] == item.name:
+			if new_player.total_money < item.refill_price:
+				print("broke ahh, cant even buy ammo")
+				return
+			if weapon["spare_ammo"] >= weapon["max_spare"]:
+				return
+			new_player.total_money -= item.refill_price
+			boolet = item.mag_cap
+			weapon["spare_ammo"] = min(weapon["spare_ammo"] + boolet, item.max_spare)
+			return
+	
+	if new_player.total_money < item.price:
+		print("sorry, you're broke")
+		return
+	new_player.total_money -= item.price
+	var weapon_data = weapon_setup(item)
+	new_player.weapons.append(weapon_data)
+	new_player.weapon_list.append(item)
+	
+	new_player.switch_weapon_prev()
+	
+#======== SHOTGUN SECTION ========
+func _on_m_500_pressed() -> void:
+	item = load("res://resources/weapon/data/second/m_500.tres")
+	var new_player = get_tree().get_first_node_in_group("player")
+	
+	for weapon in new_player.weapons:
+		if weapon["name"] == item.name:
+			if new_player.total_money < item.refill_price:
+				print("broke ahh, cant even buy ammo")
+				return
+			if weapon["spare_ammo"] >= weapon["max_spare"]:
+				return
+			new_player.total_money -= item.refill_price
+			boolet = item.mag_cap
+			weapon["spare_ammo"] = min(weapon["spare_ammo"] + boolet, item.max_spare)
+			return
+	
+	if new_player.total_money < item.price:
+		print("sorry, you're broke")
+		return
+	new_player.total_money -= item.price
+	var weapon_data = weapon_setup(item)
+	new_player.weapons.append(weapon_data)
+	new_player.weapon_list.append(item)
+	
+	new_player.switch_weapon_prev()
+
 #======== RIFLE SECTION ========
 func _on_ak_pressed() -> void:
 	item = load("res://resources/weapon/data/second/ak.tres")
@@ -80,8 +160,10 @@ func _on_ak_pressed() -> void:
 			if new_player.total_money < weapon.refill_price:
 				print("broke ahh, cant even buy ammo")
 				return
+			if weapon["spare_ammo"] >= weapon["max_spare"]:
+				return
 			new_player.total_money -= weapon.refill_price
-			boolet = 30
+			boolet = weapon.mag_cap
 			weapon["spare_ammo"] = min(weapon["spare_ammo"] + boolet, item.max_spare)
 			return
 	

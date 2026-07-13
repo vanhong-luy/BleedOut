@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://csncqw2iplgxm"]
+
+[ext_resource type="PackedScene" uid="uid://cvmtenll8iu38" path="res://resources/weapon/second/r_1100.tscn" id="1_et76x"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_37q4f"]
+
+[resource]
+script = ExtResource("2_37q4f")
+name = "R1100"
+damage = 1.0
+scene = ExtResource("1_et76x")
+type = 2
+mag_cap = 6
+max_mag = 6
+spare_ammo = 24
+max_spare = 24
+fire_rate = 0.8
+price = 1700
+refill_price = 65

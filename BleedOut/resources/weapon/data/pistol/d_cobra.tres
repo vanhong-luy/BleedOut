@@ -14,3 +14,5 @@ max_mag = 7
 spare_ammo = 35
 max_spare = 35
 fire_rate = 0.2
+price = 650
+refill_price = 40

@@ -211,6 +211,7 @@ func _on_en_hurt_box_died() -> void:
 	
 	died.emit()
 	is_dead = true
+	player.total_score += data.score
 	velocity = Vector2.ZERO
 	#top.z_index = 4
 	top.play("die")

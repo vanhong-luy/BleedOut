@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://684525vs1ava"]
+
+[ext_resource type="PackedScene" uid="uid://ck78nsv10xgbs" path="res://resources/weapon/pistol/g_18.tscn" id="1_yj44f"]
+[ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_60pfp"]
+
+[resource]
+script = ExtResource("2_60pfp")
+name = "b_92"
+damage = 1.5
+scene = ExtResource("1_yj44f")
+type = 3
+mag_cap = 18
+max_mag = 18
+spare_ammo = 54
+max_spare = 54
+fire_rate = 0.17
+price = 800
+refill_price = 20

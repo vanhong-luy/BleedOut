@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bc3uvbnl0gn4j" path="res://resources/level/other/trigger_area.tscn" id="10_rxkbc"]
 [ext_resource type="PackedScene" uid="uid://uv0eggscld2p" path="res://resources/level/other/spawn_point.tscn" id="11_ptcni"]
 [ext_resource type="PackedScene" uid="uid://cs83873hoo72g" path="res://resources/enemy/scene/blood_type/blood_type.tscn" id="13_qs3tt"]
+[ext_resource type="PackedScene" uid="uid://g6b3rfhvsmg" path="res://resources/level/transition.tscn" id="14_d454g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qs3tt"]
 vertices = PackedVector2Array(872.8828, 278, 201.75781, 278, 200.28906, 138, 872.1406, 138)
@@ -559,11 +560,11 @@ texture = ExtResource("5_qs3tt")
 sources/0 = SubResource("TileSetAtlasSource_47v2c")
 sources/1 = SubResource("TileSetAtlasSource_d454g")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ai700"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptcni"]
 texture = ExtResource("3_qioqc")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1556w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gj7df"]
 texture = ExtResource("1_p7t17")
 0:0/0 = 0
 1:0/0 = 0
@@ -651,8 +652,8 @@ texture = ExtResource("1_p7t17")
 10:9/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_t3a65"]
-sources/0 = SubResource("TileSetAtlasSource_ai700")
-sources/1 = SubResource("TileSetAtlasSource_1556w")
+sources/0 = SubResource("TileSetAtlasSource_ptcni")
+sources/1 = SubResource("TileSetAtlasSource_gj7df")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4i5j"]
 size = Vector2(176, 16)
@@ -684,6 +685,9 @@ gradient = SubResource("Gradient_yecdg")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.46244133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_teeir"]
+size = Vector2(44, 167)
 
 [node name="Ep1Bridge" type="Node2D" unique_id=1763001760]
 script = ExtResource("1_426j0")
@@ -803,3 +807,11 @@ rotation = 1.5707964
 scale = Vector2(2.2343748, 4.5148387)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_teeir")
+
+[node name="Transition" parent="." unique_id=1898142531 instance=ExtResource("14_d454g")]
+position = Vector2(1305, 226)
+next_scene = "res://resources/level/Episode1/ep1_inner_gate.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transition" unique_id=616791510]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_teeir")

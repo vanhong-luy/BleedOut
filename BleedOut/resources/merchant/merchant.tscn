@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxoced2cmee84" path="res://resources/merchant/sprite/idle.png" id="1_u8c3p"]
 [ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="3_7e2uk"]
 [ext_resource type="Script" uid="uid://dyly3c6iqyl34" path="res://resources/merchant/close_button.gd" id="3_ev7vi"]
+[ext_resource type="Texture2D" uid="uid://bqda541ephjnf" path="res://resources/item/item_sprite/d_cobra.png" id="3_vd2i0"]
 [ext_resource type="Script" uid="uid://kels65p3runa" path="res://resources/player/scenes/money.gd" id="5_56dh2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v51g3"]
@@ -30,7 +31,7 @@ shape = SubResource("RectangleShape2D_u8c3p")
 [node name="Shop" type="CanvasLayer" parent="." unique_id=864623396]
 
 [node name="Panel" type="Panel" parent="Shop" unique_id=614549052]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 100.0
@@ -61,6 +62,24 @@ text = "PISTOL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="B_92" type="Button" parent="Shop/Panel/HBoxContainer/PistolContainer" unique_id=80286465]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "B 92"
+icon = ExtResource("3_vd2i0")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="D_Cobra" type="Button" parent="Shop/Panel/HBoxContainer/PistolContainer" unique_id=2028936327]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "B 92"
+icon = ExtResource("3_vd2i0")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
 [node name="ShotgunContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1626996401]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -72,6 +91,15 @@ text = "SHOTGUN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="M_500" type="Button" parent="Shop/Panel/HBoxContainer/ShotgunContainer" unique_id=1066669332]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "M 500"
+icon = ExtResource("3_7e2uk")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
 [node name="SMGContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1927465898]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -82,6 +110,15 @@ layout_mode = 2
 text = "SMG"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="M_500" type="Button" parent="Shop/Panel/HBoxContainer/SMGContainer" unique_id=1858453193]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "M 500"
+icon = ExtResource("3_7e2uk")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="RifleContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1706417291]
 layout_mode = 2
@@ -114,6 +151,15 @@ text = "THROWABLES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="M_500" type="Button" parent="Shop/Panel/HBoxContainer/ThrowContainer" unique_id=1774223486]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "M 500"
+icon = ExtResource("3_7e2uk")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
 [node name="EquipmentContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=824623374]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -124,6 +170,15 @@ layout_mode = 2
 text = "EQUIPMENTS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="M_500" type="Button" parent="Shop/Panel/HBoxContainer/EquipmentContainer" unique_id=896103603]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "M 500"
+icon = ExtResource("3_7e2uk")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="Close" type="Button" parent="Shop/Panel" unique_id=756398400]
 layout_mode = 1
@@ -153,5 +208,8 @@ script = ExtResource("5_56dh2")
 
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
+[connection signal="pressed" from="Shop/Panel/HBoxContainer/PistolContainer/B_92" to="." method="_on_b_92_pressed"]
+[connection signal="pressed" from="Shop/Panel/HBoxContainer/PistolContainer/D_Cobra" to="." method="_on_d_cobra_pressed"]
+[connection signal="pressed" from="Shop/Panel/HBoxContainer/ShotgunContainer/M_500" to="." method="_on_m_500_pressed"]
 [connection signal="pressed" from="Shop/Panel/HBoxContainer/RifleContainer/AK" to="." method="_on_ak_pressed"]
 [connection signal="pressed" from="Shop/Panel/Close" to="." method="_on_close_pressed"]

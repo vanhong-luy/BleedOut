@@ -568,7 +568,6 @@ limit_right = 1225
 limit_bottom = 510
 
 [node name="Lights" type="Node2D" parent="." unique_id=1842220098]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=1033904786]
 color = Color(0.23799998, 0.38430005, 0.7, 1)

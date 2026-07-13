@@ -68,6 +68,7 @@ var is_dead = false
 var trans_cooldown: float = 0.5
 var trans_timer: float = 0.0
 
+@onready var panel: CanvasLayer = $Panel
 @onready var health_bar: ProgressBar = $Panel/HealthBar
 
 
@@ -89,6 +90,7 @@ var p_die = preload("res://resources/player/scenes/p_die.tscn")
 const ENEMY_LAYER = 0
 
 func _ready() -> void:
+	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	health_bar.init_health(health)
 	if GameState.saved_data != null:
 		if !GameState.saved_data.is_empty():
