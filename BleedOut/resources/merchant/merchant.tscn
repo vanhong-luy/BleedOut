@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://ddhxmblpwg1he"]
+
+[ext_resource type="Script" uid="uid://d3dtumywl2jvr" path="res://resources/merchant/merchant.gd" id="1_4nymm"]
+[ext_resource type="Texture2D" uid="uid://dxoced2cmee84" path="res://resources/merchant/sprite/idle.png" id="1_u8c3p"]
+[ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="3_7e2uk"]
+[ext_resource type="Script" uid="uid://dyly3c6iqyl34" path="res://resources/merchant/close_button.gd" id="3_ev7vi"]
+[ext_resource type="Script" uid="uid://kels65p3runa" path="res://resources/player/scenes/money.gd" id="5_56dh2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v51g3"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8c3p"]
+size = Vector2(80, 43)
+
+[node name="Merchant" type="CharacterBody2D" unique_id=325808735]
+script = ExtResource("1_4nymm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=830413104]
+texture = ExtResource("1_u8c3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1360004515]
+shape = SubResource("CircleShape2D_v51g3")
+
+[node name="ShopArea" type="Area2D" parent="." unique_id=1961168307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopArea" unique_id=143950834]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_u8c3p")
+
+[node name="Shop" type="CanvasLayer" parent="." unique_id=864623396]
+
+[node name="Panel" type="Panel" parent="Shop" unique_id=614549052]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/Panel" unique_id=1748431161]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 37.0
+offset_bottom = 357.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PistolContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1214323968]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Pistol" type="Label" parent="Shop/Panel/HBoxContainer/PistolContainer" unique_id=2067009340]
+layout_mode = 2
+text = "PISTOL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShotgunContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1626996401]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Shotgun" type="Label" parent="Shop/Panel/HBoxContainer/ShotgunContainer" unique_id=420492126]
+layout_mode = 2
+text = "SHOTGUN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SMGContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1927465898]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="SMG" type="Label" parent="Shop/Panel/HBoxContainer/SMGContainer" unique_id=1224628706]
+layout_mode = 2
+text = "SMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RifleContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1706417291]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Rifle" type="Label" parent="Shop/Panel/HBoxContainer/RifleContainer" unique_id=1258930473]
+layout_mode = 2
+text = "RIFLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AK" type="Button" parent="Shop/Panel/HBoxContainer/RifleContainer" unique_id=1823558976]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "AK"
+icon = ExtResource("3_7e2uk")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="ThrowContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=1077861701]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Throw" type="Label" parent="Shop/Panel/HBoxContainer/ThrowContainer" unique_id=461169185]
+layout_mode = 2
+text = "THROWABLES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="Shop/Panel/HBoxContainer" unique_id=824623374]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Equipment" type="Label" parent="Shop/Panel/HBoxContainer/EquipmentContainer" unique_id=203416937]
+layout_mode = 2
+text = "EQUIPMENTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Shop/Panel" unique_id=756398400]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1449.0
+offset_top = 816.0
+offset_right = -3.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 24
+text = "Close"
+script = ExtResource("3_ev7vi")
+
+[node name="Money" type="Label" parent="Shop/Panel" unique_id=1380591321]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 1.0
+offset_left = 1438.0
+offset_top = 729.0
+offset_right = 0.71984863
+offset_bottom = -3.0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+script = ExtResource("5_56dh2")
+
+[connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
+[connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]
+[connection signal="pressed" from="Shop/Panel/HBoxContainer/RifleContainer/AK" to="." method="_on_ak_pressed"]
+[connection signal="pressed" from="Shop/Panel/Close" to="." method="_on_close_pressed"]

@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="3_bccv6"]
 [ext_resource type="Texture2D" uid="uid://ccknef18a7fgt" path="res://resources/player/range - pistol.png" id="4_ll4mm"]
 [ext_resource type="Texture2D" uid="uid://cg8xugji8qtf0" path="res://resources/player/melee.png" id="4_pk0xo"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/m_1911.tres" id="4_r5ieu"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="4_r5ieu"]
 [ext_resource type="Texture2D" uid="uid://dpfxivoblffpi" path="res://resources/player/range - secondary.png" id="5_q5dse"]
 [ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/r_1100.tres" id="5_q8bgf"]
 [ext_resource type="PackedScene" uid="uid://ybwiagi0yk5c" path="res://resources/player/scenes/hurt_box.tscn" id="9_7nlgy"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://hl1ko5w4ba72" path="res://resources/player/scenes/dash_display.gd" id="21_h3mr2"]
 [ext_resource type="Script" uid="uid://d1ex2l46t2y0s" path="res://resources/player/scenes/swing_display.gd" id="22_8ujj2"]
 [ext_resource type="Script" uid="uid://i62l1d7y18it" path="res://resources/player/scenes/ammo_display.gd" id="23_mgxj2"]
+[ext_resource type="Script" uid="uid://kels65p3runa" path="res://resources/player/scenes/money.gd" id="24_2xqil"]
 [ext_resource type="Script" uid="uid://durakce8hquvh" path="res://resources/player/scenes/score.gd" id="24_q8bgf"]
 [ext_resource type="Script" uid="uid://ja4dnclyca2t" path="res://resources/player/scenes/health.gd" id="25_2xqil"]
 
@@ -1252,6 +1253,21 @@ grow_vertical = 0
 size_flags_vertical = 8
 script = ExtResource("24_q8bgf")
 
+[node name="Money" type="Label" parent="Panel" unique_id=1839467846]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -1033.0
+offset_right = -30.0
+offset_bottom = -1010.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("24_2xqil")
+
 [node name="HealthBar" type="ProgressBar" parent="Panel" unique_id=543543513]
 z_index = 1
 offset_left = 1.0
@@ -1283,6 +1299,10 @@ show_percentage = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125960287]
 zoom = Vector2(4.5, 4.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
 editor_draw_limits = true
 script = ExtResource("20_xh10n")
 

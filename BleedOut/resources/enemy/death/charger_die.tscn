@@ -7,5 +7,6 @@
 script = ExtResource("1_nqlju")
 
 [node name="DeadSprite" type="Sprite2D" parent="." unique_id=943157660]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_nqlju")
 hframes = 2

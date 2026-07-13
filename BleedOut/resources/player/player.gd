@@ -25,7 +25,8 @@ extends CharacterBody2D
 @onready var hit_box: HitBox = $HitBox
 @onready var hb_box: CollisionShape2D = $HitBox/CollisionShape2D #not homeboy box
 
-
+#Freeze
+var is_freeze: bool = false
 
 var dash_speed = 500
 var sprint_speed: float = 1.5
@@ -72,6 +73,9 @@ var trans_timer: float = 0.0
 
 #score
 var total_score = 0
+
+#m0nesy
+var total_money = 0
 
 @export var weapon_list: Array[WeaponData] = []  # drag .tres files here. No not here, in Inspector
 var weapons = []
@@ -223,8 +227,8 @@ func _physics_process(_delta):
 			#weapons[current_weapon].spare_ammo += 1
 			#trans_timer = trans_cooldown
 	
-	if Input.is_action_just_pressed("trans"):
-		print("Total Score: ", total_score)
+	#if Input.is_action_just_pressed("trans"):
+		#print("Total Score: ", total_score)
 	
 	if Input.is_action_just_pressed("attack") and can_melee and swing_amount > 0:
 		

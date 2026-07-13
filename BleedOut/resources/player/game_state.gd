@@ -13,7 +13,8 @@ func save_player(player):
 		"current_weapon": player.current_weapon,
 		"weapon_list": player.weapon_list,
 		"ammo": [],
-		"score": player.total_score
+		"score": player.total_score,
+		"money": player.total_money
 	}
 	for w in player.weapons:
 		saved_data.ammo.append({
@@ -52,7 +53,8 @@ func load_player(scene_root):
 				if i < saved_data.ammo.size():
 					player.weapons[i].mag_cap = saved_data.ammo[i].mag_cap
 					player.weapons[i].spare_ammo = saved_data.ammo[i].spare_ammo
-			player.total_score = saved_data.score
+			#player.total_score = saved_data.score
+			player.total_money = saved_data.money
 
 func _apply_camera(player, spawn):
 	var camera = player.get_node_or_null("Camera2D")
@@ -62,3 +64,13 @@ func _apply_camera(player, spawn):
 		camera.limit_right = spawn.limit_right
 		camera.limit_bottom = spawn.limit_bottom
 		camera.make_current()
+
+func score_conversion():
+	if player_node == null: return
+	var saved_score = player_node.total_score
+	if saved_score == 0: return
+	var results = saved_score / 10
+	player_node.total_money += results
+	player_node.total_score = 0
+	saved_data["money"] = player_node.total_money
+	saved_data["score"] = 0
