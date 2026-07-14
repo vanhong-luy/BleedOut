@@ -7,3 +7,4 @@ script = ExtResource("1_717th")
 name = "Rook"
 healthpoint = 2.0
 damage = 30
+score = 150

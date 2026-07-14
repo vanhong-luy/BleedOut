@@ -28,6 +28,10 @@ extends CharacterBody2D
 #Freeze
 var is_freeze: bool = false
 
+#Death Screen
+@onready var death_screen: CanvasLayer = $"Death Screen"
+
+
 var dash_speed = 500
 var sprint_speed: float = 1.5
 var dashing = false
@@ -60,7 +64,7 @@ var second_pos = Vector2(2, 5)
 var is_holding_second = false
 
 var max_health = 100
-var health = 100
+var health: float = 100
 var invincible = false #[TITLE CARD]
 var is_dead = false
 
@@ -90,6 +94,8 @@ var p_die = preload("res://resources/player/scenes/p_die.tscn")
 const ENEMY_LAYER = 0
 
 func _ready() -> void:
+	death_screen.hide()
+	death_screen.process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	health_bar.init_health(health)
 	if GameState.saved_data != null:
@@ -161,6 +167,9 @@ func _input(event):
 
 func _physics_process(_delta):
 	if is_dead:
+		if Input.is_action_just_pressed("reload"):
+			GameState.player_node = null
+			get_tree().reload_current_scene()
 		return
 	
 	var direction = Vector2.ZERO
@@ -326,7 +335,7 @@ func meleeSharp():
 func heal(lifesteal: float):
 	if is_dead:
 		return
-	health = min(roundf(health + lifesteal), max_health)
+	health = min(health + lifesteal, max_health)
 	hurt_box.healthpoint = health
 	health_bar.health = health
 
@@ -471,10 +480,9 @@ func _on_hurt_box_died(hit_from: Vector2) -> void:
 		b.global_position = global_position + Vector2(randf_range(-5, 5), randf_range(-5, 5))
 		b.move_dir = (global_position - hit_from).angle() + randf_range(-0.5, 0.5)
 		b.z_index = -2
-
-	await get_tree().create_timer(1.5).timeout
-	GameState.player_node = null
-	get_tree().reload_current_scene()
+		
+		await get_tree().create_timer(0.25).timeout
+		death_screen.show()
 	
 func switch_weapon_next():
 	#print("im being called, switch next")
@@ -576,7 +584,7 @@ func apply_knockback(force: Vector2):
 func interact():
 	var items = get_tree().get_nodes_in_group("item")
 	for item in items:
-		print(item.player_nearby)
+		#print(item.player_nearby)
 		if item.player_nearby:
 			item.pick_up()
 			return

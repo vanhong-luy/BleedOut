@@ -7,3 +7,4 @@ script = ExtResource("1_fpebx")
 name = "thrall"
 healthpoint = 1.0
 damage = 25
+score = 50

@@ -7,3 +7,4 @@ script = ExtResource("1_e85j6")
 name = "summer"
 healthpoint = 10.0
 damage = 30
+score = 250

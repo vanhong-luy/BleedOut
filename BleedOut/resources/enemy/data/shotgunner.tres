@@ -7,3 +7,4 @@ script = ExtResource("1_exyey")
 name = "Shotgunner"
 healthpoint = 2.0
 damage = 35
+score = 250

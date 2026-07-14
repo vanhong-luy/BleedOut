@@ -157,13 +157,13 @@ func _on_ak_pressed() -> void:
 	
 	for weapon in new_player.weapons:
 		if weapon["name"] == item.name:
-			if new_player.total_money < weapon.refill_price:
+			if new_player.total_money < item.refill_price:
 				print("broke ahh, cant even buy ammo")
 				return
 			if weapon["spare_ammo"] >= weapon["max_spare"]:
 				return
-			new_player.total_money -= weapon.refill_price
-			boolet = weapon.mag_cap
+			new_player.total_money -= item.refill_price
+			boolet = item.mag_cap
 			weapon["spare_ammo"] = min(weapon["spare_ammo"] + boolet, item.max_spare)
 			return
 	

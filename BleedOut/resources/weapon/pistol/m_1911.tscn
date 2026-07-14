@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://beeb1v3jdytf"]
 
-[ext_resource type="Script" uid="uid://df7nh5j0enbqo" path="res://resources/weapon/pistol/m_1911.gd" id="1_wcyed"]
-[ext_resource type="Texture2D" uid="uid://djwlmyqi116pr" path="res://resources/weapon/sprite/pistol/m_1911.png" id="2_wcyed"]
+[ext_resource type="Script" uid="uid://df7nh5j0enbqo" path="res://resources/weapon/pistol/m_1911.gd" id="1_miyl5"]
+[ext_resource type="Texture2D" uid="uid://djwlmyqi116pr" path="res://resources/weapon/sprite/pistol/usp.png" id="2_wcyed"]
+[ext_resource type="Texture2D" uid="uid://baev5wk8nudoy" path="res://resources/weapon/sprite/muzzle flash.png" id="3_miyl5"]
 
-[node name="Pistol" type="Node2D" unique_id=1045209709]
-script = ExtResource("1_wcyed")
+[node name="M1911" type="Node2D" unique_id=1045209709]
+script = ExtResource("1_miyl5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1856511493]
 position = Vector2(0, -3)
 texture = ExtResource("2_wcyed")
 vframes = 2
+
+[node name="Gunpoint" type="Marker2D" parent="." unique_id=72781860]
+position = Vector2(0, -8)
+
+[node name="Flash" type="Sprite2D" parent="." unique_id=1232511570]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("3_miyl5")

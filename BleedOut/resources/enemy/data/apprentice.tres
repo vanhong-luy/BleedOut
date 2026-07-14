@@ -7,3 +7,4 @@ script = ExtResource("1_fpebx")
 name = "apprentice"
 healthpoint = 1.5
 damage = 30
+score = 100

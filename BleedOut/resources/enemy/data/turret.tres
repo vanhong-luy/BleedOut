@@ -7,3 +7,4 @@ script = ExtResource("1_8wtta")
 name = "Turret"
 healthpoint = 5.0
 damage = 10
+score = 100

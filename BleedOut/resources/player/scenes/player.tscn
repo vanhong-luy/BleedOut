@@ -8,9 +8,8 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="3_bccv6"]
 [ext_resource type="Texture2D" uid="uid://ccknef18a7fgt" path="res://resources/player/range - pistol.png" id="4_ll4mm"]
 [ext_resource type="Texture2D" uid="uid://cg8xugji8qtf0" path="res://resources/player/melee.png" id="4_pk0xo"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="4_r5ieu"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/m_1911.tres" id="4_q8bgf"]
 [ext_resource type="Texture2D" uid="uid://dpfxivoblffpi" path="res://resources/player/range - secondary.png" id="5_q5dse"]
-[ext_resource type="Resource" uid="uid://bjtuwy6u43sal" path="res://resources/weapon/data/second/r_1100.tres" id="5_q8bgf"]
 [ext_resource type="PackedScene" uid="uid://ybwiagi0yk5c" path="res://resources/player/scenes/hurt_box.tscn" id="9_7nlgy"]
 [ext_resource type="Texture2D" uid="uid://d3trcv3inn00c" path="res://resources/player/sharp_atk_alt.png" id="9_n5h3t"]
 [ext_resource type="Texture2D" uid="uid://b7jgx6625rnhw" path="res://resources/weapon/sprite/melee/swing.png" id="11_8j8kq"]
@@ -916,46 +915,22 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PistolFX:frame")
+tracks/1/path = NodePath("../top/PistolHand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector2(4, -18)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PistolFX:position")
+tracks/2/path = NodePath("../top/PistolHand:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, -21)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../top/PistolHand:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, -18)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../top/PistolHand:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1113,7 +1088,7 @@ bg_color = Color(0, 0, 0, 1)
 [node name="Player" type="CharacterBody2D" unique_id=2076669830 groups=["player"]]
 z_index = 1
 script = ExtResource("2_vvpx2")
-weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_r5ieu"), ExtResource("5_q8bgf")])
+weapon_list = Array[ExtResource("2_r5ieu")]([ExtResource("3_bccv6"), ExtResource("4_q8bgf")])
 
 [node name="legs" type="AnimatedSprite2D" parent="." unique_id=1411536289]
 z_index = -2
@@ -1296,6 +1271,25 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="Panel/HealthBar" unique_id=1527874353]
+
+[node name="Death Screen" type="CanvasLayer" parent="." unique_id=765327664]
+visible = false
+
+[node name="Death" type="Label" parent="Death Screen" unique_id=40898095]
+offset_left = 671.0
+offset_top = 326.0
+offset_right = 1274.0
+offset_bottom = 501.0
+theme_override_font_sizes/font_size = 128
+text = "YOU DIED"
+
+[node name="PressR" type="Label" parent="Death Screen" unique_id=15981397]
+offset_left = 381.0
+offset_top = 643.0
+offset_right = 1727.0
+offset_bottom = 818.0
+theme_override_font_sizes/font_size = 128
+text = "PRESS [R] TO RESTART"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125960287]
 zoom = Vector2(4.5, 4.5)

@@ -7,3 +7,4 @@ script = ExtResource("1_xbhl4")
 name = "21 Guns"
 healthpoint = 10.0
 damage = 35
+score = 500

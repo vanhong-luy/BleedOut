@@ -5,6 +5,8 @@ extends Node2D
 @onready var camera: Camera2D = get_viewport().get_camera_2d()
 
 @onready var pistol_anim: AnimationPlayer = $"../../../Node2D/PistolAnim"
+@onready var flash: Sprite2D = $Flash
+@onready var gunpoint: Marker2D = $Gunpoint
 
 
 const BULLET = preload("uid://cp15xcknlrfht")
@@ -38,7 +40,7 @@ func shoot():
 	
 	var bullet_instance = BULLET.instantiate()
 	get_tree().root.add_child(bullet_instance)
-	bullet_instance.global_position = global_position
+	bullet_instance.global_position = gunpoint.global_position
 	bullet_instance.rotation = top.rotation + deg_to_rad(-90)
 	bullet_instance.damage = w.damage
 	camera.applyShake()
@@ -48,3 +50,8 @@ func shoot():
 	
 	if w.mag_cap == 0:
 		player.reload()
+		
+func flashing():
+	flash.visible = true
+	await get_tree().create_timer(0.1).timeout
+	flash.visible = false

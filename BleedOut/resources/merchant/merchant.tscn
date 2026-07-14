@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dxoced2cmee84" path="res://resources/merchant/sprite/idle.png" id="1_u8c3p"]
 [ext_resource type="Texture2D" uid="uid://cg41oij4k8d1h" path="res://resources/weapon/sprite/second/shotgun.png" id="3_7e2uk"]
 [ext_resource type="Script" uid="uid://dyly3c6iqyl34" path="res://resources/merchant/close_button.gd" id="3_ev7vi"]
-[ext_resource type="Texture2D" uid="uid://bqda541ephjnf" path="res://resources/item/item_sprite/d_cobra.png" id="3_vd2i0"]
+[ext_resource type="Texture2D" uid="uid://cx0u40fhw1a2m" path="res://resources/merchant/item/d_cobra_shop.png" id="3_vd2i0"]
+[ext_resource type="Texture2D" uid="uid://cu86cbhlirper" path="res://resources/merchant/item/r_1100_shop.png" id="4_adunq"]
 [ext_resource type="Script" uid="uid://kels65p3runa" path="res://resources/player/scenes/money.gd" id="5_56dh2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v51g3"]
@@ -95,7 +96,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 text = "M 500"
-icon = ExtResource("3_7e2uk")
+icon = ExtResource("4_adunq")
 icon_alignment = 1
 vertical_icon_alignment = 2
 expand_icon = true

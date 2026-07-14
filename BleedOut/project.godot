@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BleedOut"
-run/main_scene="uid://c88tejfpeaja5"
+run/main_scene="uid://ckcvmd8g08ugv"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

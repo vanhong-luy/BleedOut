@@ -7,4 +7,4 @@ script = ExtResource("1_6xos2")
 name = "blood_type"
 healthpoint = 100.0
 damage = 40
-score = 500
+score = 1500

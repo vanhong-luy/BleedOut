@@ -7,3 +7,4 @@ script = ExtResource("1_302ot")
 name = "charger"
 healthpoint = 40.0
 damage = 40
+score = 500

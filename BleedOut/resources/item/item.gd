@@ -13,7 +13,7 @@ var player_nearby: bool = false
 
 func _ready() -> void:
 	add_to_group("item")
-	print(get_tree().get_nodes_in_group("item"))
+	#print(get_tree().get_nodes_in_group("item"))
 	if item_sprite:
 		sprite.texture = item_sprite
 

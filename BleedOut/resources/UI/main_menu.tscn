@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ckcvmd8g08ugv"]
+
+[ext_resource type="Script" uid="uid://brklu0b5lla0f" path="res://resources/UI/main_menu.gd" id="1_7gi0h"]
+[ext_resource type="Texture2D" uid="uid://crp3kdbgmwl8w" path="res://resources/UI/StockCake-Gothic_Pixel_Cathedral-2216726-standard.png" id="1_v4dxc"]
+
+[node name="MainMenu" type="Control" unique_id=2127020538]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7gi0h")
+
+[node name="background" type="TextureRect" parent="." unique_id=585826143]
+layout_mode = 0
+offset_right = 1926.0
+offset_bottom = 1079.0
+texture = ExtResource("1_v4dxc")
+
+[node name="Play" type="Button" parent="." unique_id=1640994361]
+layout_mode = 0
+offset_top = 628.0
+offset_right = 162.0
+offset_bottom = 724.0
+theme_override_font_sizes/font_size = 64
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="." unique_id=782354822]
+layout_mode = 0
+offset_top = 783.0
+offset_right = 162.0
+offset_bottom = 879.0
+theme_override_font_sizes/font_size = 64
+text = "QUIT"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

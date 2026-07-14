@@ -81,8 +81,7 @@ func _on_top_animation_finished() -> void:
 		top.play("attack")
 
 func _on_en_hurt_box_died() -> void:
-	if is_dead:
-		return
+	if is_dead: return
 	died.emit()
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -103,6 +102,7 @@ func _on_en_hurt_box_died() -> void:
 		#b.z_index = -2
 		
 func attack():
+	if is_dead: return
 	if not can_attack:
 		return
 		
