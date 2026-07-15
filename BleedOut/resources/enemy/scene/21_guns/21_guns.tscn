@@ -139,7 +139,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qog0o")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_kx02s")
 }, {
 "duration": 1.0,
@@ -148,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qog0o")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_melee",
 "speed": 5.0
 }, {
@@ -251,22 +251,28 @@ animation = &"idle"
 
 [node name="top" type="AnimatedSprite2D" parent="." unique_id=1526960937]
 sprite_frames = SubResource("SpriteFrames_wuccs")
-animation = &"attack_range"
+animation = &"attack_melee"
+frame = 3
+frame_progress = 1.0
 
 [node name="ShapeCast" type="ShapeCast2D" parent="top" unique_id=1242732753]
+visible = false
 rotation = 3.1415927
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_qog0o")
 target_position = Vector2(0, 300)
 
 [node name="GunPoint" type="Marker2D" parent="top" unique_id=1086621445]
+visible = false
 position = Vector2(3, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=753542732]
+visible = false
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_83ce5")
 
 [node name="EnHurtBox" parent="." unique_id=876803159 instance=ExtResource("10_3mwhm")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnHurtBox" unique_id=458992110]
 position = Vector2(-0.5, 1.5)
@@ -279,18 +285,21 @@ wait_time = 2.0
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2011689519]
 
 [node name="MuricaMode" type="Area2D" parent="." unique_id=1884708451]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MuricaMode" unique_id=1959102190]
 shape = SubResource("CircleShape2D_6e7nj")
 debug_color = Color(0, 0.2166667, 1, 0.41960785)
 
 [node name="BritishMode" type="Area2D" parent="." unique_id=425487989]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BritishMode" unique_id=1156608494]
 shape = SubResource("CircleShape2D_v8hp8")
 debug_color = Color(1, 0.7666667, 0, 0.41960785)
 
 [node name="EnHitBox" parent="." unique_id=449375183 instance=ExtResource("13_5jom1")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnHitBox" unique_id=2034546915]
 position = Vector2(0, -18)
@@ -298,6 +307,7 @@ shape = SubResource("RectangleShape2D_hdpqk")
 debug_color = Color(0.9676396, 0, 0.47600895, 0.41960785)
 
 [node name="en_melee_range" parent="." unique_id=432587459 instance=ExtResource("13_6e7nj")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="en_melee_range" unique_id=283897681]
 position = Vector2(0, -18)

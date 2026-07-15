@@ -11,13 +11,22 @@ func _ready() -> void:
 	add_to_group("health_bar")
 
 func _set_health(new_health):
-	var prev_helth = health
+	var prev_health = health
+	var style = get_theme_stylebox("fill").duplicate()
 	health = min(max_value, new_health)
 	value = health
+	if health > 40:
+		style.bg_color = Color.WEB_GREEN
+	elif health > 20:
+		style.bg_color = Color.ORANGE
+	else:
+		style.bg_color = Color.RED
+	add_theme_stylebox_override("fill", style)
+	
 	if health <= 0:
 		queue_free()
 		
-	if health < prev_helth:
+	if health < prev_health:
 		timer.start()
 	else:
 		damage_bar.value = health

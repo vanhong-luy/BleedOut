@@ -15,5 +15,5 @@ func _process(delta):
 			
 func _on_area_entered(area: Area2D):
 	if area is HurtBox:
-		area.get_damage(damage)
+		area.get_damage(damage, global_position)
 		queue_free()

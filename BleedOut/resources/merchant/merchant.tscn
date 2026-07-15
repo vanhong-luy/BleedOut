@@ -75,7 +75,7 @@ expand_icon = true
 [node name="D_Cobra" type="Button" parent="Shop/Panel/HBoxContainer/PistolContainer" unique_id=2028936327]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
-text = "B 92"
+text = "Desert Cobra"
 icon = ExtResource("3_vd2i0")
 icon_alignment = 1
 vertical_icon_alignment = 2
@@ -206,6 +206,249 @@ offset_bottom = -3.0
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 script = ExtResource("5_56dh2")
+
+[node name="ShopToo" type="CanvasLayer" parent="." unique_id=1697206767]
+visible = false
+
+[node name="Panel" type="Panel" parent="ShopToo" unique_id=658901351]
+anchors_preset = -1
+anchor_right = 0.9990001
+anchor_bottom = 1.001
+offset_left = 200.0
+offset_top = 50.0
+offset_right = -200.0
+offset_bottom = -50.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ShopToo/Panel" unique_id=307937136]
+layout_mode = 1
+offset_right = 276.0
+offset_bottom = 275.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopToo/Panel/ScrollContainer" unique_id=461562085]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=979071200]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=25480347]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button3" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=1347591065]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button4" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=1815635008]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button5" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=1743923031]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button6" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=1599353435]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button7" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=1729600839]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button8" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=1774044152]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button9" type="Button" parent="ShopToo/Panel/ScrollContainer/VBoxContainer" unique_id=208909428]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="ShopToo/Panel" unique_id=2092535566]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -176.54004
+offset_right = 277.0
+offset_bottom = 93.45996
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopToo/Panel/ScrollContainer2" unique_id=1478628133]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=1369062758]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=1961849922]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button3" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=608770423]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button4" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=1217130855]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button5" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=1237436584]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button6" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=932131975]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button7" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=1372680288]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button8" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=1148514482]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button9" type="Button" parent="ShopToo/Panel/ScrollContainer2/VBoxContainer" unique_id=535956799]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="ShopToo/Panel" unique_id=1961529597]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -365.08008
+offset_right = 277.0
+offset_bottom = -92.08008
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopToo/Panel/ScrollContainer3" unique_id=851108209]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=93415375]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=862706538]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button3" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=2102386631]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button4" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=705741412]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button5" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=1763026332]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button6" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=730978493]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button7" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=1453215080]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button8" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=125180128]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button9" type="Button" parent="ShopToo/Panel/ScrollContainer3/VBoxContainer" unique_id=1602345213]
+custom_minimum_size = Vector2(10, 50)
+layout_mode = 2
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [connection signal="body_entered" from="ShopArea" to="." method="_on_shop_area_body_entered"]
 [connection signal="body_exited" from="ShopArea" to="." method="_on_shop_area_body_exited"]

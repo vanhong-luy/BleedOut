@@ -245,6 +245,7 @@ func _physics_process(_delta):
 		
 		if is_holding_melee:
 			swing_amount -= 1
+			get_tree().call_group("swing_bar", "update_swing", swing_amount)
 			melee()
 			if not recovering:
 				recovering = true
@@ -264,6 +265,7 @@ func _physics_process(_delta):
 		if velocity == Vector2.ZERO:
 			return
 		dash_amount -= 1
+		get_tree().call_group("dash_bar", "update_dash", dash_amount)
 		dash()
 		if not recharging:
 			recharging = true
@@ -404,6 +406,7 @@ func swing_recover():
 	while swing_amount < max_swing:
 		await get_tree().create_timer(1.0).timeout #I'm losing my mind
 		swing_amount +=1
+		get_tree().call_group("swing_bar", "update_swing", swing_amount)
 	recovering = false
 
 func dash():
@@ -422,6 +425,7 @@ func recharge_dash():
 	while dash_amount < max_dash:
 		await get_tree().create_timer(2).timeout
 		dash_amount += 1
+		get_tree().call_group("dash_bar", "update_dash", dash_amount)
 	
 	recharging = false
 
@@ -481,7 +485,7 @@ func _on_hurt_box_died(hit_from: Vector2) -> void:
 		b.move_dir = (global_position - hit_from).angle() + randf_range(-0.5, 0.5)
 		b.z_index = -2
 		
-		await get_tree().create_timer(0.25).timeout
+		#await get_tree().create_timer(0.25).timeout
 		death_screen.show()
 	
 func switch_weapon_next():
@@ -500,6 +504,24 @@ func switch_weapon_next():
 	#combo_step = 1
 	weapons[current_weapon].node.hide()
 	current_weapon = (current_weapon + 1) % weapons.size()
+	weapons[current_weapon].node.show()
+	hit_box.damage = weapons[current_weapon].damage
+	_update_holding_state()
+
+func switch_weapon_last():
+	#dont even joke lad
+	if !can_melee:
+		return
+		
+	if is_dead:
+		return
+		
+	if weapons.is_empty():
+		print("No weapon")
+		return
+	melee_id += 1
+	weapons[current_weapon].node.hide()
+	current_weapon = weapons.size() - 1
 	weapons[current_weapon].node.show()
 	hit_box.damage = weapons[current_weapon].damage
 	_update_holding_state()

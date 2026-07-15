@@ -28,7 +28,7 @@ var b_heal = preload("res://resources/other/b_heal.tscn")
 var b_fly = preload("res://resources/other/b_fly.tscn")
 var e_die = preload("res://resources/enemy/death/21guns_die.tscn")
 
-@export var speed: float = 180
+@export var speed: float = 150
 var min_dis: float = 100
 var max_dis: float = 150
 

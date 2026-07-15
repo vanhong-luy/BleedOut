@@ -104,6 +104,7 @@ func _on_d_cobra_pressed() -> void:
 	for weapon in new_player.weapons:
 		if weapon["name"] == item.name:
 			if new_player.total_money < item.refill_price:
+				print("broke ahh, cant even buy ammo")
 				return
 			if weapon["spare_ammo"] >= weapon["max_spare"]:
 				return
@@ -113,6 +114,7 @@ func _on_d_cobra_pressed() -> void:
 			return
 	
 	if new_player.total_money < item.price:
+		print("sorry, you're broke")
 		return
 	new_player.total_money -= item.price
 	var weapon_data = weapon_setup(item)
@@ -139,6 +141,7 @@ func _on_m_500_pressed() -> void:
 			return
 	
 	if new_player.total_money < item.price:
+		print("sorry, you're broke")
 		return
 	new_player.total_money -= item.price
 	var weapon_data = weapon_setup(item)
@@ -155,6 +158,7 @@ func _on_ak_pressed() -> void:
 	for weapon in new_player.weapons:
 		if weapon["name"] == item.name:
 			if new_player.total_money < item.refill_price:
+				print("broke ahh, cant even buy ammo")
 				return
 			if weapon["spare_ammo"] >= weapon["max_spare"]:
 				return
@@ -164,6 +168,7 @@ func _on_ak_pressed() -> void:
 			return
 	
 	if new_player.total_money < item.price:
+		print("sorry, you're broke")
 		return
 	new_player.total_money -= item.price
 	var weapon_data = weapon_setup(item)
