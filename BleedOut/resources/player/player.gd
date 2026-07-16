@@ -131,7 +131,8 @@ func _ready() -> void:
 				"max_mag": data.max_mag, #total amount of bullet in a round
 				"spare_ammo": data.spare_ammo, #some extra ammo
 				"max_spare": data.max_spare, #amount of extra a gun can hold
-				"fire_rate": data.fire_rate
+				"fire_rate": data.fire_rate,
+				"weapon_texture": data.weapon_texture
 				}
 			)
 	

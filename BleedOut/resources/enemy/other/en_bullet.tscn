@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://bgoiwab52gls8" path="res://resources/weapon/sprite/boolet.png" id="2_07vgh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmtld"]
-size = Vector2(18, 3)
+size = Vector2(18, 4)
 
 [node name="Bullet" type="Area2D" unique_id=1944454436]
 script = ExtResource("1_fkkqc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=295313198]
-position = Vector2(-3.5, 4.7683716e-07)
-scale = Vector2(1.4375, 1.125)
+position = Vector2(-9, 2.842171e-14)
+scale = Vector2(2.68, 2.097)
 texture = ExtResource("2_07vgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699360777]
-position = Vector2(-3, -0.5)
+position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_lmtld")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1190192969]

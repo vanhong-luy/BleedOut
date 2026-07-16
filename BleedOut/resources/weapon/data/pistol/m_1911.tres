@@ -1,16 +1,18 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://0vqksp6cjxqc"]
 
-[ext_resource type="PackedScene" uid="uid://beeb1v3jdytf" path="res://resources/weapon/pistol/m_1911.tscn" id="1_o0cn2"]
+[ext_resource type="PackedScene" uid="uid://beeb1v3jdytf" path="res://resources/weapon/pistol/m_1911.tscn" id="1_mfvcj"]
 [ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_mfvcj"]
+[ext_resource type="Texture2D" uid="uid://cx0u40fhw1a2m" path="res://resources/merchant/item/d_cobra_shop.png" id="3_mfvcj"]
 
 [resource]
 script = ExtResource("2_mfvcj")
 name = "m_1911"
 damage = 1.0
-scene = ExtResource("1_o0cn2")
+scene = ExtResource("1_mfvcj")
 type = 3
 mag_cap = 12
 max_mag = 12
 spare_ammo = 48
 max_spare = 48
 fire_rate = 0.17
+weapon_texture = ExtResource("3_mfvcj")

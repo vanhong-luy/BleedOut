@@ -550,7 +550,7 @@ rotation = -1.5707964
 [node name="Items" type="Node2D" parent="." unique_id=2074096900]
 
 [node name="R1100" parent="Items" unique_id=1756751037 instance=ExtResource("15_2ymom")]
-position = Vector2(607, 141)
+position = Vector2(617, 144)
 rotation = 1.5707964
 item_id = "BM4"
 item_sprite = ExtResource("18_3621n")
@@ -566,6 +566,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("18_3621n")
 
 [node name="Lights" type="Node2D" parent="." unique_id=1069912119]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=1203708092]
 color = Color(0.3, 0.3, 0.3, 1)

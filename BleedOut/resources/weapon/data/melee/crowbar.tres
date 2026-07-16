@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://20at5k013o85" path="res://resources/weapon/melee/crowbar.tscn" id="1_ay3s3"]
 [ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="1_yhrq2"]
+[ext_resource type="Texture2D" uid="uid://23ad5a08knne" path="res://resources/weapon/sprite/melee/crowbar.png" id="3_51dpg"]
 
 [resource]
 script = ExtResource("1_yhrq2")
 name = "crowbar"
 damage = 1.0
 scene = ExtResource("1_ay3s3")
+weapon_texture = ExtResource("3_51dpg")

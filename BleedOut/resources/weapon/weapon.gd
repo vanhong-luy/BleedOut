@@ -16,3 +16,4 @@ enum Type {melee_blunt, melee_sharp, second, pistol}
 @export var fire_rate: float
 @export var price: int
 @export var refill_price: int
+@export var weapon_texture: Texture2D

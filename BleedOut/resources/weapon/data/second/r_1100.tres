@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cvmtenll8iu38" path="res://resources/weapon/second/r_1100.tscn" id="1_hsvfw"]
 [ext_resource type="Script" uid="uid://ckrbfjt3d4vaq" path="res://resources/weapon/weapon.gd" id="2_stb1a"]
+[ext_resource type="Texture2D" uid="uid://cu86cbhlirper" path="res://resources/merchant/item/r_1100_shop.png" id="3_stb1a"]
 
 [resource]
 script = ExtResource("2_stb1a")
@@ -14,3 +15,4 @@ max_mag = 5
 spare_ammo = 25
 max_spare = 25
 fire_rate = 0.4
+weapon_texture = ExtResource("3_stb1a")

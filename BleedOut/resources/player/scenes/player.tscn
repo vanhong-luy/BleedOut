@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://djyem5t0w0df8" path="res://resources/weapon/data/melee/crowbar.tres" id="3_bccv6"]
 [ext_resource type="Texture2D" uid="uid://ccknef18a7fgt" path="res://resources/player/range - pistol.png" id="4_ll4mm"]
 [ext_resource type="Texture2D" uid="uid://cg8xugji8qtf0" path="res://resources/player/melee.png" id="4_pk0xo"]
-[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/usp.tres" id="4_q8bgf"]
+[ext_resource type="Resource" uid="uid://0vqksp6cjxqc" path="res://resources/weapon/data/pistol/m_1911.tres" id="4_q8bgf"]
 [ext_resource type="Texture2D" uid="uid://dpfxivoblffpi" path="res://resources/player/range - secondary.png" id="5_q5dse"]
 [ext_resource type="PackedScene" uid="uid://ybwiagi0yk5c" path="res://resources/player/scenes/hurt_box.tscn" id="9_7nlgy"]
 [ext_resource type="Texture2D" uid="uid://d3trcv3inn00c" path="res://resources/player/sharp_atk_alt.png" id="9_n5h3t"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://d1ex2l46t2y0s" path="res://resources/player/scenes/swing_display.gd" id="22_8ujj2"]
 [ext_resource type="Script" uid="uid://i62l1d7y18it" path="res://resources/player/scenes/ammo_display.gd" id="23_mgxj2"]
 [ext_resource type="Script" uid="uid://kels65p3runa" path="res://resources/player/scenes/money.gd" id="24_2xqil"]
+[ext_resource type="Script" uid="uid://k2j6g2hnjaym" path="res://resources/player/scenes/gun_icon.gd" id="24_picxq"]
 [ext_resource type="Script" uid="uid://durakce8hquvh" path="res://resources/player/scenes/score.gd" id="24_q8bgf"]
 [ext_resource type="Script" uid="uid://ja4dnclyca2t" path="res://resources/player/scenes/health.gd" id="25_2xqil"]
 [ext_resource type="Script" uid="uid://cnpi60c7dp0rl" path="res://resources/player/scenes/dash_bar.gd" id="25_11iob"]
@@ -1216,11 +1217,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
+offset_left = -250.0
+offset_top = -88.0
+offset_right = -97.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 56
 script = ExtResource("23_mgxj2")
 
 [node name="Score" type="Label" parent="Panel" unique_id=1208845241]
@@ -1252,6 +1255,16 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 script = ExtResource("24_2xqil")
+
+[node name="GunIcon" type="TextureRect" parent="Panel" unique_id=1592780259]
+offset_left = 1850.0
+offset_top = 1080.0
+offset_right = 2094.4958
+offset_bottom = 1139.6694
+rotation = -1.5707964
+expand_mode = 3
+stretch_mode = 4
+script = ExtResource("24_picxq")
 
 [node name="HealthBar" type="ProgressBar" parent="Panel" unique_id=543543513]
 z_index = 1

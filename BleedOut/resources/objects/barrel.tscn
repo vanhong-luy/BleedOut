@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cg1cm5gp76ot0"]
+
+[ext_resource type="Texture2D" uid="uid://85xpnc00o254" path="res://resources/objects/sprites/obj_barrel.png" id="1_gh4wq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5ku"]
+radius = 9.055386
+
+[node name="Barrel" type="CharacterBody2D" unique_id=489173320]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=553209090]
+texture = ExtResource("1_gh4wq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1979418973]
+shape = SubResource("CircleShape2D_6t5ku")
